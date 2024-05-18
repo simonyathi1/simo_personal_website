@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class LandingWidget extends StatelessWidget {
   const LandingWidget({super.key});
-  static const LANDING_TITLE = "Onesimo Nyathi\nSnr Android & Flutter Developer\nBased in Johannesburg, SA";
+  static const LANDING_TITLE = "Onesimo Nyathi\nSnr. Android & Flutter Developer\n& aspiring Software Solutions Architect";
 
   @override
   Widget build(BuildContext context) {

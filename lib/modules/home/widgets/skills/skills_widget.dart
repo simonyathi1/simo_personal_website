@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:simo_personal_website/modules/home/widgets/skills/support_widgets/skill_item_widget.dart';
@@ -18,27 +19,40 @@ class SkillsWidget extends StatelessWidget {
         ),
         const Text(
           "My Skills and Abilities",
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 60),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40 ),
         ),
         const SizedBox(
           height: 80,
         ),
-        Container(
-          decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0))),
-          height: 400,
-          child: const SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SkillItemWidget(imageUrl: "images/logo/android-logo-selected.png", skill: "Android", skillLevel: 89,),
-                SkillItemWidget(imageUrl: "images/logo/kotlin-logo.png", skill: "Kotlin", skillLevel: 85,),
-                SkillItemWidget(imageUrl: "images/logo/flutter.png", skill: "Flutter", skillLevel: 86,),
-                SkillItemWidget(imageUrl: "images/logo/Java-logo.png", skill: "Java", skillLevel: 83,),
-                SkillItemWidget(imageUrl: "images/logo/Architecture.png", skill: "Architecture", skillLevel: 45,),
-              ],
+        Stack(
+          children: [
+            Center(
+              child: Container(
+                height: 400,
+                child: Image.asset(
+                  'assets/images/logo/pattern5.png',
+                  color: CupertinoColors.inactiveGray,
+                ),
+              ),
             ),
-          ),
+            Container(
+              decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0))),
+              height: 400,
+              child: const SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SkillItemWidget(imageUrl: "assets/images/logo/android-logo-selected.png", skill: "Android", skillLevel: 89,),
+                    SkillItemWidget(imageUrl: "assets/images/logo/kotlin-logo.png", skill: "Kotlin", skillLevel: 85,),
+                    SkillItemWidget(imageUrl: "assets/images/logo/flutter.png", skill: "Flutter", skillLevel: 86,),
+                    SkillItemWidget(imageUrl: "assets/images/logo/Java-logo.png", skill: "Java", skillLevel: 83,),
+                    SkillItemWidget(imageUrl: "assets/images/logo/Architecture.png", skill: "Architecture", skillLevel: 45,),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

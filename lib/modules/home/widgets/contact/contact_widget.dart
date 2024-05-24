@@ -1,6 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/constants/light_color_constant.dart';
 
 class ContactDetailsWidget extends StatelessWidget {
   const ContactDetailsWidget({super.key});
@@ -11,12 +10,34 @@ class ContactDetailsWidget extends StatelessWidget {
       children: [
         const Padding(
           padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
-          child: Divider(height: 1,thickness: 0.5, color: Colors.black),
+          child: Divider(height: 1, thickness: 0.5, color: Colors.black),
         ),
-        Text("Contact Me", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
-        Container(
-          decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0)), color: lightCardBackgroundColor),
-          height: 400,
+        const Text(
+          "Contact Me",
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
+        ),
+        SizedBox(
+          height: 600,
+          child: Stack(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/images/logo/pattern1.png',
+                  color: CupertinoColors.inactiveGray,
+                ),
+              ),
+              Center(
+                child: Container(
+                    margin: const EdgeInsets.all(80),
+                    child: Card(
+                      elevation: 4,
+                      child: Image.asset(
+                        'assets/images/contact-card.png',
+                      ),
+                    )),
+              ),
+            ],
+          ),
         ),
       ],
     );

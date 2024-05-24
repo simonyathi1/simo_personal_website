@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/light_color_constant.dart';
+import 'greyscale_hover_image_modifier.dart';
 
 class SkillItemWidget extends StatefulWidget {
   final String imageUrl;
@@ -20,42 +21,36 @@ class _SkillItemWidgetState extends State<SkillItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 225,
+      width: 200,
       alignment: Alignment.center,
-      margin: const EdgeInsets.symmetric(horizontal: 30,),
+      margin: const EdgeInsets.symmetric(
+        horizontal: 30,
+      ),
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(border: Border.all(color: lightCardBackgroundColor), borderRadius: BorderRadius.circular(360.0), color: lightCardBackgroundColor),
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 32),
-            child: Column(
-              children: [
-                InkWell(
-                  onHover: (x) {
-                    setState(() {
-                      if (x) {
-                        colorOverlay = Colors.transparent;
-                      } else {
-                        colorOverlay = const Color(0x38676767);
-                      }
-                    });
-                  },
-                  hoverColor: Colors.transparent,
-                  child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: lightCardBackgroundColor),
-                        borderRadius: BorderRadius.circular(360.0),
-                      ),
-                      padding: const EdgeInsets.all(25),
-                      constraints: BoxConstraints.tight(const Size.fromHeight(170)),
-                      width: 200,
-                      child: Image.asset(widget.imageUrl, color: colorOverlay,)),
-                ),
-                Text(
-                  "${widget.skillLevel} %",
-                  style: const TextStyle(fontSize: 45),
-                )
-              ],
+          Card(
+            elevation: 16,
+            color: Colors.white,
+            surfaceTintColor: Colors.white,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(180)), // Sharp corners
+            ),
+            child: Container(
+              decoration: BoxDecoration(border: Border.all(color: lightCardBackgroundColor), borderRadius: BorderRadius.circular(360.0), color: lightCardBackgroundColor),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 32),
+              child: Column(
+                children: [
+                  Center(
+                    child: GrayscaleHoverImage(
+                      imageUrl: widget.imageUrl,
+                    ),
+                  ),
+                  Text(
+                    "${widget.skillLevel} %",
+                    style: const TextStyle(fontSize: 45),
+                  )
+                ],
+              ),
             ),
           ),
           const SizedBox(

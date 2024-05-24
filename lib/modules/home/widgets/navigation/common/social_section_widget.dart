@@ -12,25 +12,25 @@ class SocialSectionWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         SocialItemWidget(
-            imageUrl: "images/icons/icons8-twitter-96.png",
+            imageUrl: "assets/images/icons/icons8-twitter-96.png",
             originalColor: originalColor),
         SizedBox(
           width: 30,
         ),
         SocialItemWidget(
-            imageUrl: "images/icons/icons8-facebook-96.png",
+            imageUrl: "assets/images/icons/icons8-facebook-96.png",
             originalColor: originalColor,),
         SizedBox(
           width: 30,
         ),
         SocialItemWidget(
-            imageUrl: "images/icons/icons8-at-sign-96.png",
+            imageUrl: "assets/images/icons/icons8-at-sign-96.png",
           originalColor: originalColor,),
         SizedBox(
           width: 30,
         ),
         SocialItemWidget(
-            imageUrl: "images/icons/icons8-google-96.png",
+            imageUrl: "assets/images/icons/icons8-google-96.png",
           originalColor: originalColor,),
         SizedBox(
           width: 30,

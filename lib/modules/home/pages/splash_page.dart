@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        // child: Image.asset('images/logo/disco2.png'),
+        // child: Image.asset('assets/images/logo/disco2.png'),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,

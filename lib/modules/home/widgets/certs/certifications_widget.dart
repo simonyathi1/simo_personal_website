@@ -13,7 +13,7 @@ class CertificationsWidget extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
           child: Divider(height: 1,thickness: 0.5, color: Colors.black),
         ),
-        Text("Personal Development & Projects", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
+        const Text("Personal Development & Projects", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),),
         Container(
           decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0)), color: lightCardBackgroundColor),
           height: 400,

@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
 
   void initCursor() async{
     assetCursorOnly25 = await CustomMouseCursor.asset(
-        'images/logo/s-logo-no-bg-crop.png',
+        'assets/images/logo/s-logo-no-bg-crop.png',
         hotX: 18,
         hotY: 0);
   }
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                     // ): const SizedBox(),
                     LandingWidget(),
                     SizedBox(
-                      height: 80,
+                      height: 120,
                     ),
                     AboutMeWidget(),
                     SizedBox(

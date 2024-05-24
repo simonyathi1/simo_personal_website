@@ -9,7 +9,7 @@ class WidgetPlaygroundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Widget Playground", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
+        Text("Widget Playground", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),),
         Container(
           decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0)), color: lightCardBackgroundColor),
           height: 400,

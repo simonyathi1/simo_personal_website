@@ -19,6 +19,7 @@ dependencies:
   path_provider: ^2.0.13
   cupertino_icons: ^1.0.2
   custom_mouse_cursor: ^1.1.0
+  url_launcher: ^6.0.20
 
 dev_dependencies:
   flutter_test:
@@ -30,32 +31,50 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - images/logo/disco2.png
-    - images/logo/S-logo-full.png
-    - images/logo/s-logo-no-bg-crop.png
-    - images/logo/S-no-border.png
-    - images/logo/S-no-border-small.png
+    - assets/images/logo/disco2.png
+    - assets/images/logo/S-logo-full.png
+    - assets/images/logo/s-logo-no-bg-crop.png
+    - assets/images/logo/S-no-border.png
+    - assets/images/logo/S-no-border-small.png
 
-    - images/icons/icons8-twitter-96.png
-    - images/icons/icons8-facebook-96.png
-    - images/icons/icons8-at-sign-96.png
-    - images/icons/icons8-google-96.png
+    - assets/images/icons/icons8-twitter-96.png
+    - assets/images/icons/icons8-facebook-96.png
+    - assets/images/icons/icons8-at-sign-96.png
+    - assets/images/icons/icons8-google-96.png
 
-    - images/logo/pattern3.png
-    - images/logo/kotlin-logo.png
-    - images/logo/pattern5.png
-    - images/logo/pattern2.png
-    - images/logo/android-logo-selected.png
-    - images/logo/Java-logo.png
-    - images/logo/Architecture.png
-    - images/logo/pattern6.png
-    - images/logo/node-js.png
-    - images/logo/pattern4.png
-    - images/logo/pattern7.png
-    - images/logo/pattern1.png
-    - images/logo/flutter.png
+    - assets/images/logo/pattern3.png
+    - assets/images/logo/kotlin-logo.png
+    - assets/images/logo/pattern5.png
+    - assets/images/logo/pattern2.png
+    - assets/images/logo/android-logo-selected.png
+    - assets/images/logo/Java-logo.png
+    - assets/images/logo/Architecture.png
+    - assets/images/logo/pattern6.png
+    - assets/images/logo/node-js.png
+    - assets/images/logo/pattern4.png
+    - assets/images/logo/pattern7.png
+    - assets/images/logo/pattern1.png
+    - assets/images/logo/flutter.png
+    - assets/images/logo/under-construction.png
+    - assets/images/logo/under-construction-worker.png
+    - assets/images/logo/pdf-logo.png
 
-    - images/Simo.jpeg
+    - assets/images/Simo.jpeg
+    - assets/images/contact-card.png
+
+    - assets/images/companies/absa.png
+    - assets/images/companies/discovery.png
+    - assets/images/companies/dvt.png
+    - assets/images/companies/fidelitech-logo.png
+    - assets/images/companies/mukuru.png
+    - assets/images/companies/mukuru-big.png
+    - assets/images/companies/reverside.png
+    - assets/images/companies/reverside-big.png
+    - assets/images/companies/standard-bank-logo.png
+    - assets/images/companies/vitality-logo.png
+
+    - assets/pdf/matric_certificate.pdf
+    - assets/pdf/onesimo_nyathi_cv_2023.pdf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -72,38 +91,25 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf
-          style: italic
-        - asset: fonts/Montserrat/Montserrat-VariableFont_wght.ttf
-        - asset: fonts/Montserrat/Montserrat-Black.ttf
-        - asset: fonts/Montserrat/Montserrat-BlackItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-Bold.ttf
-        - asset: fonts/Montserrat/Montserrat-BoldItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-ExtraBold.ttf
-        - asset: fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-ExtraLight.ttf
-        - asset: fonts/Montserrat/Montserrat-ExtraLightItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-Italic.ttf
-        - asset: fonts/Montserrat/Montserrat-Light.ttf
-        - asset: fonts/Montserrat/Montserrat-LightItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-Medium.ttf
-        - asset: fonts/Montserrat/Montserrat-MediumItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-Regular.ttf
-        - asset: fonts/Montserrat/Montserrat-SemiBold.ttf
-        - asset: fonts/Montserrat/Montserrat-SemiBoldItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-Thin.ttf
-        - asset: fonts/Montserrat/Montserrat-ThinItalic.ttf
-        - asset: fonts/Montserrat/Montserrat-VariableFont_wght.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Black.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraBold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraLight.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Thin.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf
+#          weight: 400
 
     - family: Crimson_Text
       fonts:
-        - asset: fonts/Crimson_Text/CrimsonText-Bold.ttf
-        - asset: fonts/Crimson_Text/CrimsonText-BoldItalic.ttf
-        - asset: fonts/Crimson_Text/CrimsonText-Italic.ttf
-        - asset: fonts/Crimson_Text/CrimsonText-Regular.ttf
-        - asset: fonts/Crimson_Text/CrimsonText-SemiBold.ttf
-        - asset: fonts/Crimson_Text/CrimsonText-SemiBoldItalic.ttf
-          weight: 700
+        - asset: assets/fonts/Crimson_Text/CrimsonText-Bold.ttf
+        - asset: assets/fonts/Crimson_Text/CrimsonText-Regular.ttf
+        - asset: assets/fonts/Crimson_Text/CrimsonText-SemiBold.ttf
+#          weight: 400
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

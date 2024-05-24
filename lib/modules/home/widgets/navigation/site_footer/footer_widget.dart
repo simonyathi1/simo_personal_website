@@ -23,8 +23,8 @@ class FooterWidget extends StatelessWidget {
               Text("© 2024. Onesimo Nyathi, by FideliTech", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
               Column(
                 children: [
-                  Text("simonyathi1@gmail.com", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
-                  Text("onesimonyathi@fidelitech.co.za", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
+                  // Text("simonyathi1@gmail.com", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
+                  // Text("onesimonyathi@fidelitech.co.za", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
                 ],
               ),
               SocialSectionWidget(originalColor: lightSecondaryColor,)

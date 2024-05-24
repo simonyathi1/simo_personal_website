@@ -35,7 +35,7 @@ class SiteNavigationBar extends StatelessWidget {
                 children: [
                   SizedBox(
                       height: 60,
-                      child: Image.asset('images/logo/S-no-border-small.png', color: lightSecondaryColor,),
+                      child: Image.asset('assets/images/logo/S-no-border-small.png', color: lightSecondaryColor,),
                   ),
                   const Center(
                     child:

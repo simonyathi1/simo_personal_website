@@ -1,4 +1,4 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AboutMeCenterPanelWidget extends StatelessWidget {
@@ -12,30 +12,49 @@ class AboutMeCenterPanelWidget extends StatelessWidget {
         children: [
           Center(
             child: Stack(
-              children: [ Container(
-                decoration:  BoxDecoration(
-                    border:Border.all(color: Colors.blueAccent),
-                    // gradient: LinearGradient(colors: [Colors.red,Colors.black]),
-                    borderRadius: BorderRadius.circular(360.0)
-                ),
-                height: 890.0,
-                width: 660.0,
-                padding: EdgeInsets.all(32),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(360.0), // Adjust the radius as needed
+              children: [
+                Center(
                   child: Image.asset(
-                    'images/Simo.jpeg',
-                    height: 850.0,
-                    width: 600.0,
-                    fit: BoxFit.cover,
+                    'assets/images/logo/pattern3.png',
+                    color: CupertinoColors.inactiveGray,
                   ),
                 ),
-              ),
-
+                Center(
+                  child: Image.asset(
+                    'assets/images/logo/pattern6.png',
+                    color: CupertinoColors.inactiveGray.withOpacity(0.5),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    height: 890.0,
+                    width: 660.0,
+                    padding: const EdgeInsets.all(32),
+                    child: Card(
+                      elevation: 32,
+                      color: Colors.white,
+                      surfaceTintColor: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(360)), // Sharp corners
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(360.0), // Adjust the radius as needed
+                          child: Image.asset(
+                            'assets/images/Simo.jpeg',
+                            height: 850.0,
+                            width: 600.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           )
-
         ],
       ),
     );

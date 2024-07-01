@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,11 +13,12 @@ class PdfButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () async {
-        final Uri pdfUri = Uri.base.resolve('assets/pdf/onesimo_nyathi_cv_2023.pdf');
+        String releasePath = kDebugMode ? '': 'assets/';
+        final Uri pdfUri = Uri.base.resolve('${releasePath}assets/pdf/onesimo_nyathi_cv_2024.pdf');
         if (await canLaunchUrl(pdfUri)) {
           await launchUrl(pdfUri);
         } else {
-          throw 'Could not launch assets/pdf/onesimo_nyathi_cv_2023.pdf';
+          throw 'Could not launch assets/pdf/onesimo_nyathi_cv_2024.pdf';
         }
       },
       child: Padding(

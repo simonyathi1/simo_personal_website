@@ -105,9 +105,9 @@ class _HomePageState extends State<HomePage> {
                       height: 18,
                     ),
                     PDPAndProjectsWidget(),
-                    SizedBox(
-                      height: 18,
-                    ),
+                    // SizedBox(
+                    //   height: 18,
+                    // ),
                     ContactDetailsWidget(),
                     SizedBox(
                       height: 18,

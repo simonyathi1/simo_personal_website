@@ -41,6 +41,9 @@ flutter:
     - assets/images/icons/icons8-facebook-96.png
     - assets/images/icons/icons8-at-sign-96.png
     - assets/images/icons/icons8-google-96.png
+    - assets/images/icons/PDP2.png
+    - assets/images/icons/STARTUP.png
+    - assets/images/icons/WORK.png
 
     - assets/images/logo/pattern3.png
     - assets/images/logo/kotlin-logo.png
@@ -74,7 +77,7 @@ flutter:
     - assets/images/companies/vitality-logo.png
 
     - assets/pdf/matric_certificate.pdf
-    - assets/pdf/onesimo_nyathi_cv_2023.pdf
+    - assets/pdf/onesimo_nyathi_cv_2024.pdf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

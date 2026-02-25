@@ -82,6 +82,36 @@ abstract final class AppTextStyles {
     fontFamily: AppFonts.montserrat,
   );
 
+  // ── Project card ─────────────────────────────────────────────────────────────
+
+  static const TextStyle projectCardLabel = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    fontFamily: AppFonts.montserrat,
+    color: AppColors.textDimmed,
+  );
+
+  static const TextStyle projectCardTitle = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    fontFamily: AppFonts.montserrat,
+  );
+
+  static const TextStyle projectCardSummary = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    fontFamily: AppFonts.montserrat,
+    color: AppColors.textMuted,
+  );
+
+  // ── Work detail popup ────────────────────────────────────────────────────────
+
+  static const TextStyle popupBody = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    fontFamily: AppFonts.montserrat,
+  );
+
   static TextTheme get textTheme => const TextTheme(
         displayLarge: heroTitle,
         titleLarge: sectionTitle,

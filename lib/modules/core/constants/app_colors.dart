@@ -17,6 +17,13 @@ abstract final class AppColors {
   static const Color darkSecondary       = Color(0xFFFFFFFF);
   static const Color darkSelection       = Color(0xFF88B2AC);
 
+  // Overlays (const alternatives to withOpacity)
+  static const Color overlayLight        = Color(0x4D000000); // black @ ~30%
+  static const Color overlayBlueGrey    = Color(0x4D607D8B); // blueGrey @ ~30%
+  static const Color overlayHover       = Color(0x22000000); // very translucent for card hover
+  static const Color textDimmed         = Color(0xA6000000); // black @ ~65%
+  static const Color textMuted          = Color(0xBF000000); // black @ ~75%
+
   // Shared
   static const Color divider             = Colors.black;
   static const Color transparent         = Colors.transparent;

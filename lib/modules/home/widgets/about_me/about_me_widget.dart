@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:simo_personal_website/modules/home/widgets/about_me/support_widgets/companies/companies_widget.dart';
-import 'package:simo_personal_website/modules/home/widgets/about_me/support_widgets/pdf_button.dart';
+import '../../../core/constants/app_colors.dart';
 import 'support_widgets/center_panel_widget.dart';
+import 'support_widgets/companies/companies_widget.dart';
 import 'support_widgets/left_panel_widget.dart';
+import 'support_widgets/pdf_button.dart';
 import 'support_widgets/right_panel_widget.dart';
 
 class AboutMeWidget extends StatelessWidget {
@@ -16,14 +17,12 @@ class AboutMeWidget extends StatelessWidget {
           children: [
             const Expanded(
               flex: 2,
-              child: SizedBox(
-                child: AboutMeLeftPanelWidget(),
-              ),
+              child: AboutMeLeftPanelWidget(),
             ),
             Expanded(
               flex: 8,
               child: Container(
-                color: Colors.white,
+                color: AppColors.lightBackground,
                 child: const AboutMeCenterPanelWidget(),
               ),
             ),
@@ -37,7 +36,7 @@ class AboutMeWidget extends StatelessWidget {
           width: 200,
           child: PdfButton(),
         ),
-        const CompaniesWidget()
+        const CompaniesWidget(),
       ],
     );
   }

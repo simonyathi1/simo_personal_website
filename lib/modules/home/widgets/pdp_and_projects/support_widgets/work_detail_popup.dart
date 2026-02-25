@@ -1,46 +1,46 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_spacing.dart';
+import '../../../../core/theme/app_text_styles.dart';
 
 class WorkDetailPopup {
-  static void showWorkDetailPopup(BuildContext context, String title, String detail) {
+  static void showWorkDetailPopup(
+    BuildContext context,
+    String title,
+    String detail,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return Center(
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.5,
+            width: MediaQuery.of(context).size.width * AppSpacing.popupWidthFraction,
             constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height * 0.8,
+              maxHeight: MediaQuery.of(context).size.height * AppSpacing.popupMaxHeightFraction,
             ),
             child: Material(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      title,
-                         style: const TextStyle(fontSize: 23, fontWeight: FontWeight.w600, fontFamily: 'Montserrat'),
-                    ),
+                    padding: const EdgeInsets.all(AppSpacing.cardPadding),
+                    child: Text(title, style: AppTextStyles.cardTitle),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          detail,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.cardPadding,
                         ),
+                        child: Text(detail, style: AppTextStyles.popupBody),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(AppSpacing.cardPadding),
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('Dismiss', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, fontFamily: 'Montserrat'),),
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text('Dismiss', style: AppTextStyles.navItem),
                     ),
                   ),
                 ],

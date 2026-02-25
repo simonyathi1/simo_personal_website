@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_spacing.dart';
@@ -24,17 +22,17 @@ class EducationAndExperienceWidget extends StatelessWidget {
         const SizedBox(height: AppSpacing.sectionTitleBottom),
         Stack(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              child: Center(
+            LayoutBuilder(
+              builder: (_, constraints) => Center(
                 child: Image.asset(
                   'assets/images/logo/pattern5.png',
                   color: CupertinoColors.inactiveGray,
+                  width: constraints.maxWidth,
                 ),
               ),
             ),
             const SizedBox(
-              height: 600,
+              height: AppSpacing.experienceRowHeight,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

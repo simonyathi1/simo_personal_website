@@ -37,16 +37,37 @@ abstract final class AppSpacing {
   static const double skillNameGap        = 22.0;
 
   // About me panel items
-  static const double aboutPanelPadding   = 12.0;
-  static const double aboutItemTitleGap   = 38.0;
-  static const double aboutItemDetailGap  = 64.0;
-  static const double mainImageWidth  = 600.0;
-  static const double mainImageHeight  = 850.0;
-  static const double mainImageWidthBorder  = 669.0;
-  static const double mainImageHeightBorder  = 890.0;
+  static const double aboutPanelPadding        = 12.0;
+  static const double aboutItemTitleGap        = 38.0;
+  static const double aboutItemDetailGap       = 64.0;
+  static const double mainImageWidth           = 600.0;
+  static const double mainImageHeight          = 850.0;
+  static const double mainImageWidthBorder     = 669.0;
+  static const double mainImageHeightBorder    = 890.0;
+
+  // Companies banner
+  static const double companiesBannerHeight    = 120.0;
+  static const double companyItemWidth         = 120.0;
+  static const double companyImageWidth        = 150.0;
+  static const double companyImageHeight       = 54.0;
 
   // Experience section
-  static const double experienceRowHeight = 500.0;
+  static const double experienceRowHeight      = 600.0;
+
+  // Project cards
+  static const double projectCardHeight           = 430.0;
+  static const double projectCardImageHeight      = 300.0;
+  static const double projectCardRadius           = 45.0;
+  static const double projectCardContentPaddingH  = 50.0;
+  static const double projectSectionHeight        = 550.0;
+
+  // Work detail popup
+  static const double popupWidthFraction          = 0.5;
+  static const double popupMaxHeightFraction      = 0.8;
+
+  // Contact section
+  static const double contactCardSectionHeight    = 600.0;
+  static const double contactCardMargin           = 80.0;
 
   // Social icons
   static const double socialIconSize      = 20.0;

@@ -13,24 +13,17 @@ class SkillsWidget extends StatelessWidget {
     return Column(
       children: [
         const Padding(
-          padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
-          child: Divider(height: 1, thickness: 0.5, color: Colors.black),
+          padding: EdgeInsets.symmetric(vertical: AppSpacing.dividerTopPadding),
+          child: Divider(),
         ),
-        const SizedBox(
-          height: 80,
-        ),
-        const Text(
-          'My Skills and Abilities',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40 ),
-        ),
-        const SizedBox(
-          height: 80,
-        ),
+        const SizedBox(height: AppSpacing.sectionTitleTop),
+        const Text('My Skills and Abilities', style: AppTextStyles.sectionTitleBold),
+        const SizedBox(height: AppSpacing.sectionTitleBottom),
         Stack(
           children: [
             Center(
               child: SizedBox(
-                height: 400,
+                height: AppSpacing.skillCardRowHeight,
                 child: Image.asset(
                   'assets/images/logo/pattern5.png',
                   color: CupertinoColors.inactiveGray,
@@ -38,17 +31,16 @@ class SkillsWidget extends StatelessWidget {
               ),
             ),
             Center(
-              child: Container(
-                decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                height: 400,
+              child: SizedBox(
+                height: AppSpacing.skillCardRowHeight,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       for (final skill in PortfolioContent.skills)
-                      SkillItemWidget(skill: skill),
-                      ],
+                        SkillItemWidget(skill: skill),
+                    ],
                   ),
                 ),
               ),

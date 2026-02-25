@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_spacing.dart';
+import '../../../core/util/responsive.dart';
 import 'support_widgets/center_panel_widget.dart';
 import 'support_widgets/companies/companies_widget.dart';
 import 'support_widgets/left_panel_widget.dart';
@@ -13,24 +15,44 @@ class AboutMeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            const Expanded(
-              flex: 2,
-              child: AboutMeLeftPanelWidget(),
-            ),
-            Expanded(
-              flex: 8,
-              child: Container(
-                color: AppColors.lightBackground,
-                child: const AboutMeCenterPanelWidget(),
+        ResponsiveLayout(
+          mobile: (_) => const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Profile photo
+              AboutMeCenterPanelWidget(),
+              // Compact stats strip (7+ | 4 | 8)
+              AboutMeRightPanelWidget(),
+              // Bio / Contact / Services text
+              AboutMeLeftPanelWidget(),
+            ],
+          ),
+          tablet: (_) => Row(
+            children: [
+              const Expanded(flex: 3, child: AboutMeLeftPanelWidget()),
+              Expanded(
+                flex: 6,
+                child: Container(
+                  color: AppColors.lightBackground,
+                  child: const AboutMeCenterPanelWidget(),
+                ),
               ),
-            ),
-            const Expanded(
-              flex: 2,
-              child: AboutMeRightPanelWidget(),
-            ),
-          ],
+              const Expanded(flex: 3, child: AboutMeRightPanelWidget()),
+            ],
+          ),
+          desktop: (_) => Row(
+            children: [
+              const Expanded(flex: 2, child: AboutMeLeftPanelWidget()),
+              Expanded(
+                flex: 8,
+                child: Container(
+                  color: AppColors.lightBackground,
+                  child: const AboutMeCenterPanelWidget(),
+                ),
+              ),
+              const Expanded(flex: 2, child: AboutMeRightPanelWidget()),
+            ],
+          ),
         ),
         const SizedBox(
           width: 200,

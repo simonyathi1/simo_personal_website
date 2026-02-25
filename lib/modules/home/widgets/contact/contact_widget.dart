@@ -6,6 +6,7 @@ import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_spacing.dart';
 import '../../../core/content/portfolio_content.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../core/util/responsive.dart';
 
 class ContactDetailsWidget extends StatefulWidget {
   const ContactDetailsWidget({super.key});
@@ -83,31 +84,53 @@ class _ContactDetailsWidgetState extends State<ContactDetailsWidget>
           padding: EdgeInsets.symmetric(vertical: AppSpacing.dividerTopPadding),
           child: Divider(),
         ),
-        const SizedBox(height: AppSpacing.sectionTitleTop),
-        const Center(
-          child: Text('Contact Me', style: AppTextStyles.sectionTitleBold),
+        SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
+        Center(
+          child: Text('Contact Me', style: AppTextStyles.sectionTitleBoldR(context)),
         ),
-        const SizedBox(height: AppSpacing.sectionTitleBottom),
-        SizedBox(
-          height: AppSpacing.contactCardSectionHeight,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              Image.asset(
-                'assets/images/logo/pattern1.png',
-                color: CupertinoColors.inactiveGray,
-                fit: BoxFit.cover,
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(AppSpacing.contactCardMargin),
-                  child: _buildFlipCard(),
-                ),
-              ),
-            ],
+        SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
+        _buildCardSection(context),
+      ],
+    );
+  }
+
+  Widget _buildCardSection(BuildContext context) {
+    final sectionHeight = AppSpacing.contactCardSectionH(context);
+    final margin        = AppSpacing.contactCardMarginVal(context);
+
+    final inner = Stack(
+      fit: sectionHeight != null ? StackFit.expand : StackFit.loose,
+      children: [
+        if (sectionHeight != null)
+          Image.asset(
+            'assets/images/logo/pattern1.png',
+            color: CupertinoColors.inactiveGray,
+            fit: BoxFit.cover,
+          )
+        else
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/logo/pattern1.png',
+              color: CupertinoColors.inactiveGray,
+              fit: BoxFit.cover,
+            ),
+          ),
+        Center(
+          child: Padding(
+            padding: EdgeInsets.all(margin),
+            child: _buildFlipCard(),
           ),
         ),
       ],
+    );
+
+    if (sectionHeight != null) {
+      return SizedBox(height: sectionHeight, child: inner);
+    }
+    // Mobile: unconstrained height — the flip card drives its own size
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: margin),
+      child: _buildFlipCard(),
     );
   }
 

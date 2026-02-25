@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_spacing.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../core/util/responsive.dart';
 
 class _CertItem {
   final String name;
@@ -14,12 +15,19 @@ class CertificationsWidget extends StatelessWidget {
   const CertificationsWidget({super.key});
 
   static const List<_CertItem> _certs = [
-    _CertItem(name: 'Associate Android Developer', issuer: 'Google', year: '2021'),
+    _CertItem(name: 'Associate Android Developer', issuer: 'Google',     year: '2021'),
     _CertItem(name: 'Professional Scrum Master I (PSM I)', issuer: 'Scrum.org', year: '2020'),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final certWidth = Responsive.value<double?>(
+      context,
+      mobile: null,       // double.infinity via ConstrainedBox below
+      tablet: 340.0,
+      desktop: 280.0,
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,16 +35,17 @@ class CertificationsWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: AppSpacing.dividerTopPadding),
           child: Divider(),
         ),
-        const SizedBox(height: AppSpacing.sectionTitleTop),
-        const Center(
-          child: Text('Certifications', style: AppTextStyles.sectionTitleBold),
+        SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
+        Center(
+          child: Text('Certifications', style: AppTextStyles.sectionTitleBoldR(context)),
         ),
-        const SizedBox(height: AppSpacing.sectionTitleBottom),
+        SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
         Wrap(
           spacing: AppSpacing.md,
           runSpacing: AppSpacing.md,
           children: [
-            for (final cert in _certs) _CertCard(cert: cert),
+            for (final cert in _certs)
+              _CertCard(cert: cert, fixedWidth: certWidth),
           ],
         ),
       ],
@@ -46,12 +55,14 @@ class CertificationsWidget extends StatelessWidget {
 
 class _CertCard extends StatelessWidget {
   final _CertItem cert;
-  const _CertCard({required this.cert});
+  final double? fixedWidth;
+
+  const _CertCard({required this.cert, this.fixedWidth});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 280,
+    Widget card = Container(
+      width: fixedWidth,
       padding: const EdgeInsets.all(AppSpacing.cardPadding),
       decoration: BoxDecoration(
         color: AppColors.lightCardBackground,
@@ -66,5 +77,11 @@ class _CertCard extends StatelessWidget {
         ],
       ),
     );
+
+    // On mobile fixedWidth is null — stretch full width
+    if (fixedWidth == null) {
+      return SizedBox(width: double.infinity, child: card);
+    }
+    return card;
   }
 }

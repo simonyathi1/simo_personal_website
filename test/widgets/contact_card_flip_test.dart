@@ -2,38 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simo_personal_website/modules/home/widgets/contact/contact_widget.dart';
 
-void main() {
-  Widget buildSubject() {
-    return const MaterialApp(
-      home: Scaffold(
+Widget buildSubject({Size size = const Size(1200, 900)}) {
+  return MaterialApp(
+    home: MediaQuery(
+      data: MediaQueryData(size: size),
+      child: const Scaffold(
         body: SingleChildScrollView(
           child: ContactDetailsWidget(),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
-  group('ContactDetailsWidget — flip animation', () {
+void main() {
+  group('ContactDetailsWidget — flip animation (desktop)', () {
     testWidgets('section title is always visible', (tester) async {
       await tester.pumpWidget(buildSubject());
       expect(find.text('Contact Me'), findsOneWidget);
     });
 
-    testWidgets('business card image is shown before flip', (tester) async {
+    testWidgets('form fields are hidden before flip', (tester) async {
       await tester.pumpWidget(buildSubject());
-
-      // The front face contains a Card wrapping the business card asset.
-      // Before flip the form fields are not visible.
       expect(find.byType(TextFormField), findsNothing);
     });
 
     testWidgets('form fields appear after tapping the business card', (tester) async {
       await tester.pumpWidget(buildSubject());
 
-      // Tap the GestureDetector that wraps the business card front face.
       await tester.tap(find.byType(GestureDetector).first);
-
-      // Allow the 600 ms flip animation to complete.
       await tester.pump(const Duration(milliseconds: 700));
 
       expect(find.byType(TextFormField), findsWidgets);
@@ -71,6 +68,20 @@ void main() {
       expect(find.text('Name is required'),    findsOneWidget);
       expect(find.text('Email is required'),   findsOneWidget);
       expect(find.text('Message is required'), findsOneWidget);
+    });
+  });
+
+  group('ContactDetailsWidget — flip animation (mobile)', () {
+    const mobileSize = Size(390, 844);
+
+    testWidgets('section title is visible on mobile', (tester) async {
+      await tester.pumpWidget(buildSubject(size: mobileSize));
+      expect(find.text('Contact Me'), findsOneWidget);
+    });
+
+    testWidgets('form fields hidden before flip on mobile', (tester) async {
+      await tester.pumpWidget(buildSubject(size: mobileSize));
+      expect(find.byType(TextFormField), findsNothing);
     });
   });
 }

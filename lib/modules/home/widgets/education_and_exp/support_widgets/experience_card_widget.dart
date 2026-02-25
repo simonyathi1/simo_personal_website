@@ -1,11 +1,9 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/models/experience_item.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/util/responsive.dart';
 import 'experience_card_item_widget.dart';
 
 class ExperienceCardWidget extends StatelessWidget {
@@ -13,12 +11,32 @@ class ExperienceCardWidget extends StatelessWidget {
   final List<ExperienceItem> experiences;
   final double cardElevation;
 
-  const ExperienceCardWidget({super.key, required this.title,required this.experiences, required this.cardElevation });
+  const ExperienceCardWidget({
+    super.key,
+    required this.title,
+    required this.experiences,
+    required this.cardElevation,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    final vPad = Responsive.value<double>(
+      context,
+      mobile: 1.0,
+      tablet: 1,
+      desktop: 4.0,
+    );
+    final rowHeight = AppSpacing.experienceRowHeightR(context);
+    final cardHeight = AppSpacing.experienceRCardHeightR(context);
+
+    final  List<Widget>experienceCards= [];
+
+    for (final exp in experiences) {
+      experienceCards.add(ExperienceCardItem(experience: exp));
+    }
+    return Container(
+      height: rowHeight,
+      padding: const EdgeInsets.all(AppSpacing.cardPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -35,20 +53,20 @@ class ExperienceCardWidget extends StatelessWidget {
           ),
           Card(
             elevation: cardElevation,
-            color: Colors.white,
-            surfaceTintColor: Colors.white,
+            color: AppColors.lightBackground,
+            surfaceTintColor: AppColors.lightBackground,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(45)), // Sharp corners
+              borderRadius: BorderRadius.all(
+                Radius.circular(AppSpacing.projectCardRadius),
+              ),
             ),
             child: Container(
-              padding: const EdgeInsets.all(16),
-              width: MediaQuery.of(context).size.width/4,
-              height: 500,
-              child: ListView.builder(
-                itemCount: experiences.length,
-                itemBuilder: (context, index) => ExperienceCardItem(
-                  experience: experiences[index],
-                ),
+              // color: Colors.blue,
+              height: cardHeight,
+              width: MediaQuery.of(context).size.width/vPad,
+              padding: const EdgeInsets.all(AppSpacing.cardPadding),
+              child: Column(
+                children: experienceCards,
               ),
             ),
           ),

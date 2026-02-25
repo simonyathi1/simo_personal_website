@@ -13,9 +13,11 @@ class WorkDetailPopup {
       builder: (BuildContext context) {
         return Center(
           child: Container(
-            width: MediaQuery.of(context).size.width * AppSpacing.popupWidthFraction,
+            width: MediaQuery.sizeOf(context).width *
+                AppSpacing.popupWidthFractionR(context),
             constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height * AppSpacing.popupMaxHeightFraction,
+              maxHeight: MediaQuery.sizeOf(context).height *
+                  AppSpacing.popupMaxHeightFraction,
             ),
             child: Material(
               borderRadius: BorderRadius.circular(AppSpacing.cardRadius),

@@ -17,6 +17,9 @@ class ProjectCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardHeight  = AppSpacing.projectCardHeightR(context);
+    final imageHeight = AppSpacing.projectCardImageHeightR(context);
+
     return InkWell(
       onTap: () {
         WorkDetailPopup.showWorkDetailPopup(
@@ -32,7 +35,10 @@ class ProjectCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: AppSpacing.sm, bottom: AppSpacing.xs),
+              padding: const EdgeInsets.only(
+                left: AppSpacing.sm,
+                bottom: AppSpacing.xs,
+              ),
               child: Text(
                 project.title,
                 style: AppTextStyles.label,
@@ -49,22 +55,26 @@ class ProjectCardWidget extends StatelessWidget {
                 ),
               ),
               child: SizedBox(
-                height: AppSpacing.projectCardHeight,
+                height: cardHeight,
                 child: Column(
                   children: [
                     Stack(
                       children: [
                         SizedBox(
-                          height: AppSpacing.projectCardImageHeight,
+                          height: imageHeight,
                           child: Image.asset(
                             'assets/images/logo/pattern3.png',
                             color: AppColors.overlayBlueGrey,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
                           ),
                         ),
                         Center(
                           child: Container(
-                            padding: const EdgeInsets.all(AppSpacing.projectCardContentPaddingH),
-                            height: AppSpacing.projectCardImageHeight,
+                            padding: const EdgeInsets.all(
+                              AppSpacing.projectCardContentPaddingH,
+                            ),
+                            height: imageHeight,
                             child: Image.asset(project.imageAsset),
                           ),
                         ),
@@ -76,7 +86,8 @@ class ProjectCardWidget extends StatelessWidget {
                             ),
                             child: Container(
                               color: AppColors.overlayLight,
-                              height: AppSpacing.projectCardImageHeight,
+                              height: imageHeight,
+                              width: double.infinity,
                             ),
                           ),
                         ),
@@ -93,13 +104,11 @@ class ProjectCardWidget extends StatelessWidget {
                           Text(
                             'Current Project: ',
                             style: AppTextStyles.projectCardLabel,
-                            textAlign: TextAlign.start,
                           ),
                           Flexible(
                             child: Text(
                               project.projectName,
                               style: AppTextStyles.projectCardTitle,
-                              textAlign: TextAlign.start,
                             ),
                           ),
                         ],

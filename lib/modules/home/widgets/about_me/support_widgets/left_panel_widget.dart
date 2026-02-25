@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/content/portfolio_content.dart';
+import '../../../../core/constants/app_spacing.dart';
 import 'left_panel_item_widget.dart';
 
 class AboutMeLeftPanelWidget extends StatelessWidget {
@@ -7,12 +9,21 @@ class AboutMeLeftPanelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(AppSpacing.aboutPanelPadding),
       child: Column(
         children: [
-          AboutMeLeftPanelWidgetItem(title: "Biography", detail: "I get paid to solve problems using various Mobile Application development tools. I am a very driven and ambitious person with an exceptional love for learning, growth, and continuous improvement",),
-          AboutMeLeftPanelWidgetItem(title: "Contact", detail: "Johannesburg, SA\nsimonyathi@gmail.com\n(+27) 73 071 2536",),
-          AboutMeLeftPanelWidgetItem(title: "Services", detail: "Android Development\nFlutter Development\nMobile Architect",),
+          AboutMeLeftPanelWidgetItem(
+            title: 'Biography',
+            detail: PortfolioContent.biography,
+          ),
+          AboutMeLeftPanelWidgetItem(
+            title: 'Contact',
+            detail: PortfolioContent.contactDetails,
+          ),
+          AboutMeLeftPanelWidgetItem(
+            title: 'Services',
+            detail: PortfolioContent.services,
+          ),
         ],
       ),
     );

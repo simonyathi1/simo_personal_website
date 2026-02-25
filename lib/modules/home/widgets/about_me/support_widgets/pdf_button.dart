@@ -2,7 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../core/constants/light_color_constant.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/theme/app_text_styles.dart';
 
 class PdfButton extends StatelessWidget {
   const PdfButton({
@@ -27,10 +28,7 @@ class PdfButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(width: 20, child: Image.asset('assets/images/logo/pdf-logo.png')),
-            const Text(
-              "View my Resume",
-              style: TextStyle(color: lightSecondaryColor, fontSize: 13, fontFamily: 'Montserrat'),
-            ),
+            const Text('View my Resume', style: AppTextStyles.body),
           ],
         ),
       ),

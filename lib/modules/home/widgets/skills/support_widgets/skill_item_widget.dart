@@ -1,15 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_spacing.dart';
+import '../../../../core/models/skill_item.dart';
+import '../../../../core/theme/app_text_styles.dart';
 
-import '../../../../core/constants/light_color_constant.dart';
 import 'greyscale_hover_image_modifier.dart';
 
 class SkillItemWidget extends StatefulWidget {
-  final String imageUrl;
-  final String skill;
-  final int skillLevel;
+  final SkillItem skill;
 
-  const SkillItemWidget({super.key, required this.imageUrl, required this.skill, required this.skillLevel});
+  const SkillItemWidget({super.key, required this.skill});
 
   @override
   State<SkillItemWidget> createState() => _SkillItemWidgetState();
@@ -23,9 +23,7 @@ class _SkillItemWidgetState extends State<SkillItemWidget> {
     return Container(
       width: 200,
       alignment: Alignment.center,
-      margin: const EdgeInsets.symmetric(
-        horizontal: 30,
-      ),
+      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.skillCardMarginH),
       child: Column(
         children: [
           Card(
@@ -33,33 +31,35 @@ class _SkillItemWidgetState extends State<SkillItemWidget> {
             color: Colors.white,
             surfaceTintColor: Colors.white,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(180)), // Sharp corners
+              borderRadius:
+                  BorderRadius.all(Radius.circular(180)), // Sharp corners
             ),
             child: Container(
-              decoration: BoxDecoration(border: Border.all(color: lightCardBackgroundColor), borderRadius: BorderRadius.circular(360.0), color: lightCardBackgroundColor),
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 32),
+              decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.lightCardBackground),
+                  borderRadius: BorderRadius.circular(AppSpacing.skillCircleRadius),
+                  color: AppColors.lightCardBackground),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.skillCirclePaddingH,
+                vertical: AppSpacing.skillCirclePaddingV,
+              ),
               child: Column(
                 children: [
                   Center(
                     child: GrayscaleHoverImage(
-                      imageUrl: widget.imageUrl,
+                      imageUrl: widget.skill.imageAsset,
                     ),
                   ),
                   Text(
-                    "${widget.skillLevel} %",
-                    style: const TextStyle(fontSize: 45),
-                  )
+                    '${widget.skill.level} %',
+                    style: AppTextStyles.skillPercent,
+                  ),
                 ],
               ),
             ),
           ),
-          const SizedBox(
-            height: 22,
-          ),
-          Text(
-            widget.skill,
-            style: const TextStyle(fontSize: 16, fontFamily: "Montserrat", fontWeight: FontWeight.w600),
-          )
+          const SizedBox(height: AppSpacing.skillNameGap),
+          Text(widget.skill.name, style: AppTextStyles.skillName),
         ],
       ),
     );

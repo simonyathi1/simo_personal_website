@@ -2,14 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:simo_personal_website/modules/core/constants/light_color_constant.dart';
-import 'package:simo_personal_website/modules/home/widgets/education_and_exp/support_widgets/experience_card_item_widget.dart';
-
-import '../../../../core/models/framework_models/experience/experience_item_model.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_spacing.dart';
+import '../../../../core/models/experience_item.dart';
+import '../../../../core/theme/app_text_styles.dart';
+import 'experience_card_item_widget.dart';
 
 class ExperienceCardWidget extends StatelessWidget {
   final String title;
-  final List<ExperienceItemModel> experiences;
+  final List<ExperienceItem> experiences;
   final double cardElevation;
 
   const ExperienceCardWidget({super.key, required this.title,required this.experiences, required this.cardElevation });
@@ -22,8 +23,15 @@ class ExperienceCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
-            child: Text(title.toUpperCase(), style: const TextStyle(color: lightGreyColor, fontSize: 13, fontWeight: FontWeight.w600, fontFamily: 'Montserrat'), textAlign: TextAlign.start,),
+            padding: const EdgeInsets.only(
+              left: AppSpacing.sm,
+              bottom: AppSpacing.xs,
+            ),
+            child: Text(
+              title.toUpperCase(),
+              style: AppTextStyles.label,
+              textAlign: TextAlign.start,
+            ),
           ),
           Card(
             elevation: cardElevation,
@@ -37,8 +45,11 @@ class ExperienceCardWidget extends StatelessWidget {
               width: MediaQuery.of(context).size.width/4,
               height: 500,
               child: ListView.builder(
-                  itemCount: experiences.length,
-                  itemBuilder: (context, index) => ExperienceCardItem(what: experiences[index].what, where: experiences[index].where)),
+                itemCount: experiences.length,
+                itemBuilder: (context, index) => ExperienceCardItem(
+                  experience: experiences[index],
+                ),
+              ),
             ),
           ),
         ],

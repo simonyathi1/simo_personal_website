@@ -1,51 +1,95 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:simo_personal_website/modules/core/constants/light_color_constant.dart';
-import 'package:simo_personal_website/modules/home/widgets/navigation/common/social_section_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_spacing.dart';
+import '../../../../core/content/portfolio_content.dart';
+import '../../../../core/theme/app_text_styles.dart';
+import '../../../cubit/navigation_cubit.dart';
+import '../../../cubit/navigation_state.dart';
+import '../common/social_section_widget.dart';
 
-class SiteNavigationBar extends StatelessWidget {
-  const SiteNavigationBar({super.key});
+class SiteNavigationBar extends StatelessWidget implements PreferredSizeWidget {
+  final Map<PortfolioSection, GlobalKey> sectionKeys;
+
+  const SiteNavigationBar({super.key, required this.sectionKeys});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(AppSpacing.navBarHeight);
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.white,
-      toolbarHeight: 180,
-      title: Row(
+    return Container(
+      height: AppSpacing.navBarHeight,
+      color: AppColors.lightBackground,
+      child: Row(
         children: [
-           const Expanded(
+          Expanded(
             flex: 5,
             child: Padding(
-              padding: EdgeInsets.only(left: 120),
-              child: Row(
-                children: [
-                  _NavBarItem(title: "HOME"),
-                  _NavBarItem(title: "ABOUT"),
-                  _NavBarItem(title: "PORTFOLIO"),
-                  _NavBarItem(title: "CERTS"),
-                  _NavBarItem(title: "PDP"),
-                ],
+              padding: const EdgeInsets.only(left: AppSpacing.navLogoLeftPadding),
+              child: BlocBuilder<NavigationCubit, NavigationState>(
+                builder: (context, state) {
+                  return Row(
+                    children: [
+                      _NavBarItem(
+                        title: 'HOME',
+                        section: PortfolioSection.home,
+                        isActive: state.activeSection == PortfolioSection.home,
+                        sectionKeys: sectionKeys,
+                      ),
+                      _NavBarItem(
+                        title: 'ABOUT',
+                        section: PortfolioSection.about,
+                        isActive: state.activeSection == PortfolioSection.about,
+                        sectionKeys: sectionKeys,
+                      ),
+                      _NavBarItem(
+                        title: 'SKILLS',
+                        section: PortfolioSection.skills,
+                        isActive: state.activeSection == PortfolioSection.skills,
+                        sectionKeys: sectionKeys,
+                      ),
+                      _NavBarItem(
+                        title: 'CERTS',
+                        section: PortfolioSection.certifications,
+                        isActive: state.activeSection == PortfolioSection.certifications,
+                        sectionKeys: sectionKeys,
+                      ),
+                      _NavBarItem(
+                        title: 'PDP',
+                        section: PortfolioSection.pdp,
+                        isActive: state.activeSection == PortfolioSection.pdp,
+                        sectionKeys: sectionKeys,
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
           ),
           Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  SizedBox(
-                      height: 60,
-                      child: Image.asset('assets/images/logo/S-no-border-small.png', color: lightSecondaryColor,),
+            flex: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: AppSpacing.navBarLogoHeight,
+                  child: Image.asset(
+                    'images/logo/S-no-border-small.png',
+                    color: AppColors.lightPrimary,
                   ),
-                  const Center(
-                    child:
-                    Text("SIMO\nNYATHI", style: TextStyle(fontSize: 14, color: lightSecondaryColor, letterSpacing: 4, fontWeight: FontWeight.bold, fontFamily: 'Montserrat'), textAlign: TextAlign.center,),
-                  )
-                ],
-              )),
+                ),
+                const Text(
+                  PortfolioContent.brandName,
+                  style: AppTextStyles.navBrand,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
           const Expanded(
             flex: 5,
-            child: SocialSectionWidget(originalColor: lightSecondaryColor,)
+            child: SocialSectionWidget(originalColor: AppColors.lightPrimary),
           ),
         ],
       ),
@@ -55,39 +99,50 @@ class SiteNavigationBar extends StatelessWidget {
 
 class _NavBarItem extends StatefulWidget {
   final String title;
-  const _NavBarItem({required this.title});
+  final PortfolioSection section;
+  final bool isActive;
+  final Map<PortfolioSection, GlobalKey> sectionKeys;
+
+  const _NavBarItem({
+    required this.title,
+    required this.section,
+    required this.isActive,
+    required this.sectionKeys,
+  });
 
   @override
   State<_NavBarItem> createState() => _NavBarItemState();
 }
 
 class _NavBarItemState extends State<_NavBarItem> {
-  Color c = lightSecondaryColor;
+  bool _isHovered = false;
+
+  Color get _textColor {
+    if (widget.isActive || _isHovered) return AppColors.lightAccent;
+    return AppColors.lightPrimary;
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () => setState(() {
-              // _selectedIndex = index;
-            }),
-        onHover: (x) {
-          setState(() {
-            if (x) {
-              c = lightAccentColor;
-            } else {
-              c = lightSecondaryColor;
-            }
-          });
-        },
-        hoverColor: Colors.transparent,
-        child: SizedBox(
-          height: 100,
-            width: 100,
-            child: Center(
-              child: Text(
-                        widget.title,
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, fontFamily: 'Montserrat', color: c),
-                      ),
-            )));
+      onTap: () {
+        final key = widget.sectionKeys[widget.section];
+        if (key != null) {
+          context.read<NavigationCubit>().scrollToSection(widget.section, key);
+        }
+      },
+      onHover: (isHovered) => setState(() => _isHovered = isHovered),
+      hoverColor: AppColors.transparent,
+      child: SizedBox(
+        height: AppSpacing.navItemSize,
+        width: AppSpacing.navItemSize,
+        child: Center(
+          child: Text(
+            widget.title,
+            style: AppTextStyles.navItem.copyWith(color: _textColor),
+          ),
+        ),
+      ),
+    );
   }
 }

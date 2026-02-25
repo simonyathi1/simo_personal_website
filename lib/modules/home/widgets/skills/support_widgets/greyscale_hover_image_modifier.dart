@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/light_color_constant.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class GrayscaleHoverImage extends StatefulWidget {
   final String imageUrl;
@@ -38,7 +38,7 @@ class GrayScaleHoverImageState extends State<GrayscaleHoverImage>  with SingleTi
       onExit: (_) => _setHover(false),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: lightCardBackgroundColor),
+          border: Border.all(color: AppColors.lightCardBackground),
           borderRadius: BorderRadius.circular(360.0),
         ),
         padding: const EdgeInsets.all(25),

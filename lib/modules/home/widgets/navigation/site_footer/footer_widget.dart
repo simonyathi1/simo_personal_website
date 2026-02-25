@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:simo_personal_website/modules/home/widgets/navigation/common/social_section_widget.dart';
-
-import '../../../../core/constants/light_color_constant.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_spacing.dart';
+import '../../../../core/content/portfolio_content.dart';
+import '../../../../core/theme/app_text_styles.dart';
+import '../common/social_section_widget.dart';
 
 class FooterWidget extends StatelessWidget {
   const FooterWidget({super.key});
@@ -9,25 +11,28 @@ class FooterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [ const Padding(
-        padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
-        child: Divider(height: 1,thickness: 0.5, color: Colors.black),
-      ),
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: AppSpacing.dividerTopPadding),
+          child: Divider(),
+        ),
         Container(
-          padding: const EdgeInsets.all(18),
-          height: 100,
-          //color: lightSecondaryColor,
+          padding: const EdgeInsets.all(AppSpacing.footerPadding),
+          height: AppSpacing.footerHeight,
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("© 2024. Onesimo Nyathi, by FideliTech", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
+              Text(PortfolioContent.footerCopyright, style: AppTextStyles.footerCaption),
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(PortfolioContent.primaryEmail, style: AppTextStyles.footerCaption),
+                  Text(PortfolioContent.businessEmail, style: AppTextStyles.footerCaption),
                   // Text("simonyathi1@gmail.com", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
                   // Text("onesimonyathi@fidelitech.co.za", style: TextStyle(color: lightSecondaryColor, fontFamily: 'Montserrat'),),
                 ],
               ),
-              SocialSectionWidget(originalColor: lightSecondaryColor,)
+              SocialSectionWidget(originalColor: AppColors.lightPrimary),
             ],
           ),
         ),

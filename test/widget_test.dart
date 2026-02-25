@@ -6,15 +6,14 @@ import 'package:mocktail/mocktail.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modular_test/modular_test.dart';
 import 'package:simo_personal_website/modules/core/core_module.dart';
-import 'package:simo_personal_website/modules/core/services/local_storage_service.dart';
+
+import 'services/hive_local_storage_service_test.dart';
 // import 'package:simo_personal_website/modules/feature2/feature_2_module_def.dart';
 // import 'package:simo_personal_website/modules/feature2/models/data_models/pokemon.dart';
 // import 'package:simo_personal_website/modules/feature2/pages/feature_2_base_page.dart';
 // import 'package:simo_personal_website/modules/feature2/repositories/feature_2_repo.dart';
 //
 // class MockPokemonRepository extends Mock implements Feature2Repository {}
-
-class MockLocalStorageService extends Mock implements LocalStorageService {}
 
 main() {
   final mockLocalStorageService = MockLocalStorageService();

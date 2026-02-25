@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_spacing.dart';
 
 class AboutMeCenterPanelWidget extends StatelessWidget {
   const AboutMeCenterPanelWidget({super.key});
@@ -7,7 +9,7 @@ class AboutMeCenterPanelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(AppSpacing.aboutPanelPadding),
       child: Column(
         children: [
           Center(
@@ -27,15 +29,15 @@ class AboutMeCenterPanelWidget extends StatelessWidget {
                 ),
                 Center(
                   child: Container(
-                    height: 890.0,
-                    width: 660.0,
+                    height: AppSpacing.mainImageHeightBorder,
+                    width: AppSpacing.mainImageWidthBorder,
                     padding: const EdgeInsets.all(32),
                     child: Card(
                       elevation: 32,
                       color: Colors.white,
                       surfaceTintColor: Colors.white,
                       shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(360)), // Sharp corners
+                        borderRadius: BorderRadius.all(Radius.circular(AppSpacing.skillCircleRadius)), // Sharp corners
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -43,8 +45,8 @@ class AboutMeCenterPanelWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(360.0), // Adjust the radius as needed
                           child: Image.asset(
                             'assets/images/Simo.jpeg',
-                            height: 850.0,
-                            width: 600.0,
+                            height: AppSpacing.mainImageHeight,
+                            width: AppSpacing.mainImageWidth,
                             fit: BoxFit.cover,
                           ),
                         ),

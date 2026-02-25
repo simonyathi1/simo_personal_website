@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constants/light_color_constant.dart';
-
 class CompanyGrayscaleHoverImage extends StatefulWidget {
   final String imageUrl;
 

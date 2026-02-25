@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:simo_personal_website/modules/core/constants/light_color_constant.dart';
 import 'package:simo_personal_website/modules/core/models/framework_models/projects/project_item_model.dart';
 import 'package:simo_personal_website/modules/core/widget_data_builder/project_card_data.dart';
 import 'package:simo_personal_website/modules/home/widgets/education_and_exp/support_widgets/experience_card_item_widget.dart';
 import 'package:simo_personal_website/modules/home/widgets/pdp_and_projects/support_widgets/work_detail_popup.dart';
 
-import '../../../../core/models/framework_models/experience/experience_item_model.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/theme/app_text_styles.dart';
 
 class ProjectCardWidget extends StatelessWidget {
   final ProjectItemModel projectItemModel;
@@ -23,7 +23,7 @@ class ProjectCardWidget extends StatelessWidget {
       onTap: () {
         WorkDetailPopup.showWorkDetailPopup(
           context,
-          "${projectItemModel.title}: ${projectItemModel.projectName}",
+          '${projectItemModel.title}: ${projectItemModel.projectName}',
           projectItemModel.projectDetail
            );
       },
@@ -37,7 +37,7 @@ class ProjectCardWidget extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
               child: Text(
                 projectItemModel.title,
-                style: const TextStyle(color: lightGreyColor, fontSize: 13, fontWeight: FontWeight.w600, fontFamily: 'Montserrat'),
+                style: AppTextStyles.label ,
                 textAlign: TextAlign.start,
               ),
             ),
@@ -57,7 +57,7 @@ class ProjectCardWidget extends StatelessWidget {
                         children: [
                           Container(
                             height: 300,
-                            child: Image.asset("assets/images/logo/pattern3.png", color: Colors.blueGrey.withOpacity(0.3),),
+                            child: Image.asset('assets/images/logo/pattern3.png', color: Colors.blueGrey.withOpacity(0.3),),
                           ),
                           Center(
                             child: Container(
@@ -83,7 +83,7 @@ class ProjectCardWidget extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Current Project: ",  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500,fontFamily: 'Montserrat', color: Colors.black.withOpacity(0.65)), textAlign: TextAlign.start,),
+                            Text('Current Project: ',  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500,fontFamily: 'Montserrat', color: Colors.black.withOpacity(0.65)), textAlign: TextAlign.start,),
                             Text(projectItemModel.projectName,  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, fontFamily: 'Montserrat'), textAlign: TextAlign.start,),
                           ],
                         ),

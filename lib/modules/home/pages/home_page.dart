@@ -1,136 +1,96 @@
 import 'package:custom_mouse_cursor/custom_mouse_cursor.dart';
 import 'package:flutter/material.dart';
-import 'package:simo_personal_website/modules/home/widgets/contact/contact_widget.dart';
-import 'package:simo_personal_website/modules/home/widgets/education_and_exp/education_and_exp_widget.dart';
-import 'package:simo_personal_website/modules/home/widgets/navigation/site_footer/footer_widget.dart';
-import 'package:simo_personal_website/modules/home/widgets/navigation/site_nav_bar/site_navigation_bar.dart';
-import 'package:simo_personal_website/modules/home/widgets/pdp_and_projects/pdp_and_projects_widget.dart';
-import 'package:simo_personal_website/modules/home/widgets/skills/skills_widget.dart';
-import '../../core/util/responsive.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cubit/navigation_cubit.dart';
+import '../cubit/navigation_state.dart';
 import '../widgets/about_me/about_me_widget.dart';
+import '../widgets/certs/certifications_widget.dart';
+import '../widgets/contact/contact_widget.dart';
+import '../widgets/education_and_exp/education_and_exp_widget.dart';
 import '../widgets/landing/landing_widget.dart';
+import '../widgets/navigation/site_footer/footer_widget.dart';
+import '../widgets/navigation/site_nav_bar/site_navigation_bar.dart';
+import '../widgets/pdp_and_projects/pdp_and_projects_widget.dart';
+import '../widgets/skills/skills_widget.dart';
+import '../../core/constants/app_spacing.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
+  late final NavigationCubit _cubit;
   late CustomMouseCursor assetCursorOnly25;
+
+  final _sectionKeys = <PortfolioSection, GlobalKey>{
+    PortfolioSection.home:           GlobalKey(),
+    PortfolioSection.about:          GlobalKey(),
+    PortfolioSection.skills:         GlobalKey(),
+    PortfolioSection.experience:     GlobalKey(),
+    PortfolioSection.certifications: GlobalKey(),
+    PortfolioSection.pdp:            GlobalKey(),
+    PortfolioSection.contact:        GlobalKey(),
+  };
+
   @override
   void initState() {
-    initCursor();
     super.initState();
+    _cubit = NavigationCubit();
   }
 
-  void initCursor() async{
+  Future<void> initCursor() async{
     assetCursorOnly25 = await CustomMouseCursor.asset(
         'assets/images/logo/s-logo-no-bg-crop.png',
         hotX: 18,
         hotY: 0);
   }
   @override
-  Widget build(BuildContext context) {
-    final isDesktop = Responsive.isDesktop(context);
-    final isMobile = Responsive.isMobile(context);
+  void dispose() {
+    _cubit.close();
+    super.dispose();
+  }
 
-    return MouseRegion(
-      cursor: SystemMouseCursors.precise,
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider.value(
+      value: _cubit,
       child: Scaffold(
-        // drawer: !isDesktop
-        //     ? const SizedBox(
-        //         width: 250,
-        //         child: SideMenuWidget(),
-        //       )
-        //     : null,
-        // endDrawer: isMobile
-        //     ?  SizedBox(
-        //         width: MediaQuery.of(context).size.width * 0.75,
-        //         child: const Padding(
-        //           padding: EdgeInsets.only(right: 18.0),
-        //           child: SummaryWidget(),
-        //         ),
-        //       )
-        //     : null,
-        appBar: AppBar(
-          toolbarHeight: 180,
-          title: const SiteNavigationBar(),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(AppSpacing.navBarHeight),
+          child: SiteNavigationBar(sectionKeys: _sectionKeys),
         ),
         body: SafeArea(
-            child: SingleChildScrollView(
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 150),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // !Responsive.isDesktop(context) ?
-                    //  Padding(
-                    //   padding: const EdgeInsets.all(8.0),
-                    //   child: Row(
-                    //     children: [
-                    //       InkWell(
-                    //         onTap: () => Scaffold.of(context).openDrawer(),
-                    //         child: const Icon(
-                    //           Icons.menu,
-                    //           color: Colors.grey,
-                    //         ),
-                    //       ),
-                    //       if (Responsive.isMobile(context)) InkWell(
-                    //         onTap: () => Scaffold.of(context).openEndDrawer(),
-                    //         child: const Icon(
-                    //           Icons.summarize,
-                    //           color: Colors.grey,
-                    //         ),
-                    //       ) ,
-                    //     ],
-                    //   ),
-                    // ): const SizedBox(),
-                    LandingWidget(),
-                    SizedBox(
-                      height: 120,
-                    ),
-                    AboutMeWidget(),
-                    SizedBox(
-                      height: 18,
-                    ),
-                    SkillsWidget(),
-                    SizedBox(
-                      height: 18,
-                    ),
-                    EducationAndExperienceWidget(),
-                    SizedBox(
-                      height: 18,
-                    ),
-                    PDPAndProjectsWidget(),
-                    // SizedBox(
-                    //   height: 18,
-                    // ),
-                    ContactDetailsWidget(),
-                    SizedBox(
-                      height: 18,
-                    ),
-                    FooterWidget()
-                    // if(Responsive.isTablet(context))
-                    //   const SizedBox(
-                    //     height: 18,
-                    //   ),
-                    //
-                    // if(Responsive.isTablet(context))
-                    //   const SummaryWidget()
-                  ],
-                ),
-              ),
-            )
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(
+              vertical: AppSpacing.pageVerticalPadding,
+              horizontal: AppSpacing.pageHorizontalPadding,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                LandingWidget(key: _sectionKeys[PortfolioSection.home]),
+                const SizedBox(height: AppSpacing.heroBottomSpacing),
+                AboutMeWidget(key: _sectionKeys[PortfolioSection.about]),
+                const SizedBox(height: AppSpacing.sectionSpacing),
+                SkillsWidget(key: _sectionKeys[PortfolioSection.skills]),
+                const SizedBox(height: AppSpacing.sectionSpacing),
+                EducationAndExperienceWidget(key: _sectionKeys[PortfolioSection.experience]),
+                const SizedBox(height: AppSpacing.sectionSpacing),
+                CertificationsWidget(key: _sectionKeys[PortfolioSection.certifications]),
+                const SizedBox(height: AppSpacing.sectionSpacing),
+                PDPAndProjectsWidget(key: _sectionKeys[PortfolioSection.pdp]),
+                const SizedBox(height: AppSpacing.sectionSpacing),
+                ContactDetailsWidget(key: _sectionKeys[PortfolioSection.contact]),
+                const SizedBox(height: AppSpacing.sectionSpacing),
+                const FooterWidget(),
+              ],
+            ),
+          ),
         ),
-        //bottomNavigationBar: const FooterWidget(),
       ),
     );
   }
-  // Expanded(
-  // flex: 15,
-  // child: Container(color: Colors.white,child: const LandingWidget(),),
-  // ),
 }

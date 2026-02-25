@@ -1,12 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:simo_personal_website/modules/core/constants/light_color_constant.dart';
+import '../../core/content/portfolio_content.dart';
+import '../../core/theme/app_text_styles.dart';
 
 class SplashPage extends StatefulWidget {
-
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -18,9 +17,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 3), () {
-      Modular.to.pushReplacementNamed('/home');
-    });
+    _timer = Timer(
+      const Duration(seconds: 3),
+      () => Modular.to.pushReplacementNamed('/home'),
+    );
   }
 
   @override
@@ -33,13 +33,13 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        // child: Image.asset('assets/images/logo/disco2.png'),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Simo, to the world!", style: TextStyle(fontSize: 35, color: lightSecondaryColor),),
-            CircularProgressIndicator()
+            Text(PortfolioContent.splashLine, style: AppTextStyles.sectionTitleBold),
+            SizedBox(height: 24),
+            CircularProgressIndicator(),
           ],
         ),
       ),

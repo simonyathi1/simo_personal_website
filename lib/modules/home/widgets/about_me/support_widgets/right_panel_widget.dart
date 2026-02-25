@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/content/portfolio_content.dart';
+import '../../../../core/constants/app_spacing.dart';
 import 'right_panel_item_widget.dart';
 
 class AboutMeRightPanelWidget extends StatelessWidget {
@@ -7,12 +9,21 @@ class AboutMeRightPanelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(AppSpacing.aboutPanelPadding),
       child: Column(
         children: [
-          AboutMeRightPanelWidgetItem(title: "Years of\nExperience", detail: "7+",),
-          AboutMeRightPanelWidgetItem(title: "Companies\nWorked For", detail: "4",),
-          AboutMeRightPanelWidgetItem(title: "Corporate Projects", detail: "8",),
+          AboutMeRightPanelWidgetItem(
+            title: 'Years of\nExperience',
+            detail: PortfolioContent.yearsOfExperience,
+          ),
+          AboutMeRightPanelWidgetItem(
+            title: 'Companies\nWorked For',
+            detail: PortfolioContent.companiesWorkedFor,
+          ),
+          AboutMeRightPanelWidgetItem(
+            title: 'Corporate Projects',
+            detail: PortfolioContent.corporateProjects,
+          ),
         ],
       ),
     );

@@ -1,34 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:simo_personal_website/modules/core/widget_data_builder/experience_card_data.dart';
 import 'package:simo_personal_website/modules/core/widget_data_builder/project_card_data.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_spacing.dart';
+import '../../../core/theme/app_text_styles.dart';
 
-import '../../../core/constants/light_color_constant.dart';
 import 'support_widgets/project_card_widget.dart';
+class _Project {
+  final String title;
+  final String description;
+  final String tech;
+  const _Project({required this.title, required this.description, required this.tech});
+}
 
 class PDPAndProjectsWidget extends StatelessWidget {
   const PDPAndProjectsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final experienceCardData = ExperienceCardData();
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
-          child: Divider(height: 1, thickness: 0.5, color: Colors.black),
+          padding: EdgeInsets.symmetric(vertical: AppSpacing.dividerTopPadding),
+          child: Divider(),
         ),
-        const SizedBox(
-          height: 40,
+        const SizedBox(height: AppSpacing.sectionTitleTop),
+        const Center(
+          child: Text('Projects & Personal Development', style: AppTextStyles.sectionTitleBold),
         ),
-        const Text(
-          "Projects & Personal Development",
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
-        ),
-        const SizedBox(
-          height: 40,
-        ),
+        const SizedBox(height: AppSpacing.sectionTitleBottom),
+
         Stack(
           children: [
             SizedBox(

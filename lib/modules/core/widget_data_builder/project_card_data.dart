@@ -1,18 +1,17 @@
-import 'package:simo_personal_website/modules/core/models/framework_models/experience/experience_item_model.dart';
 
 import '../models/framework_models/projects/project_item_model.dart';
 
 class ProjectCardData {
-  static const workSummary = "Working as a Snr. Mobile Engineer at Discovery - Vitality Global. My focus on is Android, Kotlin, Flutter, and Software Architecture";
-  final work = ProjectItemModel(title: "Work", projectName: "Vitality Global", imageUrl: "assets/images/icons/WORK.png", projectSummary: workSummary, projectDetail: workDetail);
+  static const workSummary = 'Working as a Snr. Mobile Engineer at Discovery - Vitality Global. My focus on is Android, Kotlin, Flutter, and Software Architecture';
+  final work = ProjectItemModel(title: 'Work', projectName: 'Vitality Global', imageUrl: 'assets/images/icons/WORK.png', projectSummary: workSummary, projectDetail: workDetail);
 
   static const pdpSummary =
-      "My Personal Development Target for 2024 is to transition into a Mobile Solutions Architect. My focus is on System Design, Android, iOS, Flutter, and Web/ Backend Architecture";
-  final pdp = ProjectItemModel(title: "PDP", projectName: "Road to Mobile Solutions Architect", imageUrl: "assets/images/icons/PDP2.png", projectSummary: pdpSummary, projectDetail: pdpDetail);
+      'My Personal Development Target for 2024 is to transition into a Mobile Solutions Architect. My focus is on System Design, Android, iOS, Flutter, and Web/ Backend Architecture';
+  final pdp = ProjectItemModel(title: 'PDP', projectName: 'Road to Mobile Solutions Architect', imageUrl: 'assets/images/icons/PDP2.png', projectSummary: pdpSummary, projectDetail: pdpDetail);
 
   static const personalSummary =
-      "This is my Personal/ personal company (FideliTech) project where I build personal and client Solutions while leveraging skills gained at Work and on my PDP journey";
-  final personal = ProjectItemModel(title: "FideliTech", projectName: "Simo's Website", imageUrl: "assets/images/icons/STARTUP.png", projectSummary: personalSummary, projectDetail: personalProjectDetail);
+      'This is my Personal/ personal company (FideliTech) project where I build personal and client Solutions while leveraging skills gained at Work and on my PDP journey';
+  final personal = ProjectItemModel(title: 'FideliTech', projectName: "Simo's Website", imageUrl: 'assets/images/icons/STARTUP.png', projectSummary: personalSummary, projectDetail: personalProjectDetail);
 
   static const workDetail = """
   My Journey with Discovery has had me wear multiple hats ranging from Android Mobile App Support, to operating as my Manager's Second in command (2iC), to running the 
@@ -33,7 +32,7 @@ class ProjectCardData {
   
   The Skills I have gained include Android, Kotlin, Flutter, Swift, Software Design, Critical Thinking, Problem Solving, Leadership, Communication, Collaboration, Accountability and Ownership""";
 
-  static const personalProjectDetail = """
+  static const personalProjectDetail = '''
   This highlights the details of my current personal/ outside-of-work projects
   
   At this moment, my current project is centered around this website. This is an on-going project I have committed to building as I improve my skills. It is a simple showcase of
@@ -43,9 +42,9 @@ class ProjectCardData {
   
   I am writing this using Flutter and Dart. I aim to use it as a playground through which I can play with various development tools and widgets. I aim to make it dynamic and make it open to interaction.
   
-  I hope it evolves into something people might like.""";
+  I hope it evolves into something people might like.''';
 
-  static const pdpDetail = """
+  static const pdpDetail = '''
   This portion highlights my Personal Development Plan. It highlights a plan centered mostly around my career as a software developer and the trajectory and direction I plan 
   to take it towards. I am currently a Senior Android/ Mobile Engineer and I enjoy the challenges I get to face as far as my job is concerned. There are mainly 3 designations I have identified
   for this journey, namely, Mobile, Solutions, and Enterprise Architect. 
@@ -64,6 +63,6 @@ class ProjectCardData {
    
   For 2024, I have set myself a goal of becoming a Competent Mobile Architect and mastering the process of designing Mobile Applications in various ways depending on the specific needs and requirements. I aim to 
   master the design principles that will allow me to build Clean, Robust, Testable, Scalable, and Maintainable Applications. I am building up the requisite fundamentals to become a 
-  fully fledged Mobile Architect focussed on creating solutions for iOS and Android using Android, iOS, and Flutter development frameworks""";
+  fully fledged Mobile Architect focussed on creating solutions for iOS and Android using Android, iOS, and Flutter development frameworks''';
 
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:simo_personal_website/modules/home/widgets/skills/support_widgets/skill_item_widget.dart';
+import '../../../core/constants/app_spacing.dart';
+import '../../../core/content/portfolio_content.dart';
+import '../../../core/theme/app_text_styles.dart';
+import 'support_widgets/skill_item_widget.dart';
 
 class SkillsWidget extends StatelessWidget {
   const SkillsWidget({super.key});
@@ -18,7 +20,7 @@ class SkillsWidget extends StatelessWidget {
           height: 80,
         ),
         const Text(
-          "My Skills and Abilities",
+          'My Skills and Abilities',
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 40 ),
         ),
         const SizedBox(
@@ -39,17 +41,14 @@ class SkillsWidget extends StatelessWidget {
               child: Container(
                 decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8.0))),
                 height: 400,
-                child: const SingleChildScrollView(
+                child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SkillItemWidget(imageUrl: "assets/images/logo/android-logo-selected.png", skill: "Android", skillLevel: 89,),
-                      SkillItemWidget(imageUrl: "assets/images/logo/kotlin-logo.png", skill: "Kotlin", skillLevel: 85,),
-                      SkillItemWidget(imageUrl: "assets/images/logo/flutter.png", skill: "Flutter", skillLevel: 86,),
-                      SkillItemWidget(imageUrl: "assets/images/logo/Java-logo.png", skill: "Java", skillLevel: 83,),
-                      SkillItemWidget(imageUrl: "assets/images/logo/Architecture.png", skill: "Architecture", skillLevel: 45,),
-                    ],
+                      for (final skill in PortfolioContent.skills)
+                      SkillItemWidget(skill: skill),
+                      ],
                   ),
                 ),
               ),

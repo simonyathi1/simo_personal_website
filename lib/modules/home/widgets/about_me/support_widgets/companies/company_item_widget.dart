@@ -2,9 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:simo_personal_website/modules/home/widgets/about_me/support_widgets/companies/company_greyscale_hover_image_modifier.dart';
 
-import '../../../../../core/constants/light_color_constant.dart';
-import '../../../skills/support_widgets/greyscale_hover_image_modifier.dart';
-
 class CompanyItemWidget extends StatefulWidget {
   final String imageUrl;
 

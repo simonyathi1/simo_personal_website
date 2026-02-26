@@ -1,11 +1,11 @@
 {
-    "name": "simo_personal_website",
-    "short_name": "simo_personal_website",
+    "name": "Simo Nyathi",
+    "short_name": "Simo Nyathi",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Building my portfolio website in flutter",
+    "background_color": "#002323",
+    "theme_color": "#002323",
+    "description": "Staff Mobile Engineer — Payments, SDK Architecture & Cross-Platform Systems.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

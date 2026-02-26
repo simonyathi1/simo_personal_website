@@ -1,70 +1,72 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_spacing.dart';
+import '../../../../core/models/skill_item.dart';
+import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/util/responsive.dart';
+import '../../common/greyscale_hover_image_modifier.dart';
 
-import '../../../../core/constants/light_color_constant.dart';
+class SkillItemWidget extends StatelessWidget {
+  final SkillItem skill;
 
-class SkillItemWidget extends StatefulWidget {
-  final String imageUrl;
-  final String skill;
-  final int skillLevel;
-
-  const SkillItemWidget({super.key, required this.imageUrl, required this.skill, required this.skillLevel});
-
-  @override
-  State<SkillItemWidget> createState() => _SkillItemWidgetState();
-}
-
-class _SkillItemWidgetState extends State<SkillItemWidget> {
-  Color colorOverlay = Colors.transparent;
+  const SkillItemWidget({super.key, required this.skill});
 
   @override
   Widget build(BuildContext context) {
+    final cardWidth   = AppSpacing.skillCardWidthR(context);
+    final imageSize   = cardWidth * 0.72;
+    final vPadding    = Responsive.value<double>(
+      context,
+      mobile: 14.0,
+      tablet: 22.0,
+      desktop: AppSpacing.skillCirclePaddingV,
+    );
+
     return Container(
-      width: 225,
+      width: cardWidth,
       alignment: Alignment.center,
-      margin: const EdgeInsets.symmetric(horizontal: 30,),
+      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.skillCardMarginH),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            decoration: BoxDecoration(border: Border.all(color: lightCardBackgroundColor), borderRadius: BorderRadius.circular(360.0), color: lightCardBackgroundColor),
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 32),
-            child: Column(
-              children: [
-                InkWell(
-                  onHover: (x) {
-                    setState(() {
-                      if (x) {
-                        colorOverlay = Colors.transparent;
-                      } else {
-                        colorOverlay = const Color(0x38676767);
-                      }
-                    });
-                  },
-                  hoverColor: Colors.transparent,
-                  child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: lightCardBackgroundColor),
-                        borderRadius: BorderRadius.circular(360.0),
-                      ),
-                      padding: const EdgeInsets.all(25),
-                      constraints: BoxConstraints.tight(const Size.fromHeight(170)),
-                      width: 200,
-                      child: Image.asset(widget.imageUrl, color: colorOverlay,)),
-                ),
-                Text(
-                  "${widget.skillLevel} %",
-                  style: const TextStyle(fontSize: 45),
-                )
-              ],
+          Card(
+            elevation: 16,
+            color: AppColors.lightBackground,
+            surfaceTintColor: AppColors.lightBackground,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(AppSpacing.skillCircleRadius),
+              ),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.lightCardBackground),
+                borderRadius:
+                    BorderRadius.circular(AppSpacing.skillCircleRadius),
+                color: AppColors.lightCardBackground,
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSpacing.skillCirclePaddingH,
+                vertical: vPadding,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  GrayscaleHoverImage(
+                    imageUrl: skill.imageAsset,
+                    width: imageSize,
+                    height: imageSize,
+                  ),
+                  Text(
+                    '${skill.level} %',
+                    style: AppTextStyles.skillPercentR(context),
+                  ),
+                ],
+              ),
             ),
           ),
-          const SizedBox(
-            height: 22,
-          ),
-          Text(
-            widget.skill,
-            style: const TextStyle(fontSize: 16, fontFamily: "Montserrat", fontWeight: FontWeight.w600),
-          )
+          const SizedBox(height: AppSpacing.skillNameGap),
+          Text(skill.name, style: AppTextStyles.skillName),
         ],
       ),
     );

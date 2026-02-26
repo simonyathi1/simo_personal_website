@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:simo_personal_website/modules/core/constants/light_color_constant.dart';
+import '../core/theme/app_theme.dart';
 
 class MainWidget extends StatelessWidget {
   MainWidget({super.key}) {
@@ -12,12 +12,7 @@ class MainWidget extends StatelessWidget {
     return MaterialApp.router(
       title: 'Simo Nyathi',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: lightBackgroundColor,
-        fontFamily: "Crimson_Text",
-        brightness: Brightness.light
-      ),
+      theme: AppTheme.light,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
     );

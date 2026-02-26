@@ -79,7 +79,7 @@ class CoreCompetenciesWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(vertical: AppSpacing.dividerTopPadding),
+          padding: EdgeInsets.only(bottom: AppSpacing.dividerTopPadding),
           child: Divider(),
         ),
         SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
@@ -96,6 +96,7 @@ class CoreCompetenciesWidget extends StatelessWidget {
           tablet: (_) => _buildWrap(context, columns: 2),
           mobile: (_) => _buildWrap(context, columns: 1),
         ),
+        SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
       ],
     );
   }

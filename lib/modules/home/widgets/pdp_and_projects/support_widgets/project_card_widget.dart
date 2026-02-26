@@ -3,6 +3,7 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/models/project_item.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/util/responsive.dart';
 import 'work_detail_popup.dart';
 
 class ProjectCardWidget extends StatelessWidget {
@@ -17,119 +18,113 @@ class ProjectCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cardHeight  = AppSpacing.projectCardHeightR(context);
-    final imageHeight = AppSpacing.projectCardImageHeightR(context);
+    final headerHeight = Responsive.value<double>(
+      context,
+      mobile: 120.0,
+      tablet: 140.0,
+      desktop: 160.0,
+    );
+    final iconSize = headerHeight * 0.42;
 
-    return InkWell(
-      onTap: () {
-        WorkDetailPopup.showWorkDetailPopup(
-          context,
-          '${project.title}: ${project.projectName}',
-          project.projectDetail,
-        );
-      },
-      hoverColor: AppColors.transparent,
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.cardPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: AppSpacing.sm,
-                bottom: AppSpacing.xs,
-              ),
-              child: Text(
-                project.title,
-                style: AppTextStyles.label,
-                textAlign: TextAlign.start,
-              ),
-            ),
-            Card(
-              elevation: cardElevation,
-              color: AppColors.lightBackground,
-              surfaceTintColor: AppColors.lightBackground,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(AppSpacing.projectCardRadius),
+    // Scale shadow depth from the elevation value so the middle card pops most.
+    final shadowBlur    = cardElevation + 8;
+    final shadowOpacity = (cardElevation / 60).clamp(0.07, 0.18);
+
+    return Padding(
+      padding: const EdgeInsets.all(AppSpacing.md),
+      child: Card(
+        // padding: const EdgeInsets.all(AppSpacing.xl),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(AppSpacing.projectCardRadius),
+          ),
+        ),
+        child: InkWell(
+          onTap: () => WorkDetailPopup.showWorkDetailPopup(
+            context,
+            '${project.title}: ${project.projectName}',
+            project.projectDetail,
+          ),
+          // hoverColor: AppColors.overlayHover,
+          borderRadius: BorderRadius.circular(AppSpacing.projectCardRadius),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // ── Dark header band ──────────────────────────────────────
+              ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(AppSpacing.projectCardRadius),
+                ),
+                child: Container(
+                  height: headerHeight,
+                  width: double.infinity,
+                  color: AppColors.lightPrimary,
+                  child: Center(
+                    child: Image.asset(
+                      project.imageAsset,
+                      height: iconSize,
+                      // Render icon as white silhouette on the dark background.
+                      color: AppColors.lightBackground,
+                      colorBlendMode: BlendMode.srcIn,
+                    ),
+                  ),
                 ),
               ),
-              child: SizedBox(
-                height: cardHeight,
+
+              // ── Content area ──────────────────────────────────────────
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  AppSpacing.cardPadding,
+                  AppSpacing.md,
+                  AppSpacing.cardPadding,
+                  AppSpacing.cardPadding,
+                ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Stack(
+                    // Category label
+                    Text(
+                      project.title.toUpperCase(),
+                      style: AppTextStyles.labelUppercase,
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+
+                    // Project name
+                    Text(
+                      project.projectName,
+                      style: AppTextStyles.cardTitle,
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+
+                    // Summary
+                    Text(
+                      project.projectSummary,
+                      style: AppTextStyles.projectCardSummary,
+                    ),
+                    const SizedBox(height: AppSpacing.md),
+
+                    // CTA
+                    Row(
                       children: [
-                        SizedBox(
-                          height: imageHeight,
-                          child: Image.asset(
-                            'assets/images/logo/pattern3.png',
-                            color: AppColors.overlayBlueGrey,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                        Text(
+                          'Read Case Study',
+                          style: AppTextStyles.label.copyWith(
+                            color: AppColors.lightPrimary,
                           ),
                         ),
-                        Center(
-                          child: Container(
-                            padding: const EdgeInsets.all(
-                              AppSpacing.projectCardContentPaddingH,
-                            ),
-                            height: imageHeight,
-                            child: Image.asset(project.imageAsset),
-                          ),
-                        ),
-                        Center(
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(AppSpacing.projectCardRadius),
-                              topRight: Radius.circular(AppSpacing.projectCardRadius),
-                            ),
-                            child: Container(
-                              color: AppColors.overlayLight,
-                              height: imageHeight,
-                              width: double.infinity,
-                            ),
-                          ),
+                        const SizedBox(width: AppSpacing.xs),
+                        const Icon(
+                          Icons.arrow_forward,
+                          size: 14,
+                          color: AppColors.lightPrimary,
                         ),
                       ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: AppSpacing.cardPadding,
-                        vertical: AppSpacing.sm,
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Current Project: ',
-                            style: AppTextStyles.projectCardLabel,
-                          ),
-                          Flexible(
-                            child: Text(
-                              project.projectName,
-                              style: AppTextStyles.projectCardTitle,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: AppSpacing.cardPadding,
-                        vertical: AppSpacing.sm,
-                      ),
-                      child: Text(
-                        project.projectSummary,
-                        style: AppTextStyles.projectCardSummary,
-                        textAlign: TextAlign.start,
-                      ),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

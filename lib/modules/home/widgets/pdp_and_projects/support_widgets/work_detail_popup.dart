@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/theme/app_text_styles.dart';
 
@@ -8,44 +9,97 @@ class WorkDetailPopup {
     String title,
     String detail,
   ) {
+    final size = MediaQuery.sizeOf(context);
+
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      barrierColor: Colors.black54,
+      builder: (BuildContext dialogContext) {
         return Center(
           child: Container(
-            width: MediaQuery.sizeOf(context).width *
-                AppSpacing.popupWidthFractionR(context),
+            width: size.width * AppSpacing.popupWidthFractionR(context),
             constraints: BoxConstraints(
-              maxHeight: MediaQuery.sizeOf(context).height *
-                  AppSpacing.popupMaxHeightFraction,
+              maxHeight: size.height * AppSpacing.popupMaxHeightFraction,
             ),
-            child: Material(
-              borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(AppSpacing.cardPadding),
-                    child: Text(title, style: AppTextStyles.cardTitle),
-                  ),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.cardPadding,
-                        ),
-                        child: Text(detail, style: AppTextStyles.popupBody),
+            // ClipRRect ensures the dark header is clipped to the dialog's radius.
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Material(
+                color: AppColors.lightBackground,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // ── Dark header ───────────────────────────────────────
+                    Container(
+                      color: AppColors.lightPrimary,
+                      padding: const EdgeInsets.fromLTRB(
+                        AppSpacing.lg,
+                        AppSpacing.lg,
+                        AppSpacing.sm,
+                        AppSpacing.lg,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              title,
+                              style: AppTextStyles.cardTitle.copyWith(
+                                color: AppColors.lightBackground,
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () => Navigator.of(dialogContext).pop(),
+                            icon: const Icon(
+                              Icons.close,
+                              color: AppColors.lightBackground,
+                            ),
+                            tooltip: 'Close',
+                            splashRadius: 20,
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(AppSpacing.cardPadding),
-                    child: ElevatedButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Dismiss', style: AppTextStyles.navItem),
+
+                    // ── Scrollable body ───────────────────────────────────
+                    Expanded(
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.lg,
+                          vertical: AppSpacing.xl,
+                        ),
+                        child: Text(
+                          detail,
+                          style: AppTextStyles.popupBody.copyWith(height: 1.75),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+
+                    // ── Footer ────────────────────────────────────────────
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        AppSpacing.lg,
+                        AppSpacing.sm,
+                        AppSpacing.lg,
+                        AppSpacing.lg,
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: OutlinedButton.icon(
+                          onPressed: () => Navigator.of(dialogContext).pop(),
+                          icon: const Icon(Icons.keyboard_arrow_up, size: 16),
+                          label: const Text('Dismiss'),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: AppColors.lightPrimary,
+                            side: const BorderSide(color: AppColors.lightPrimary),
+                            textStyle: AppTextStyles.navItem,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

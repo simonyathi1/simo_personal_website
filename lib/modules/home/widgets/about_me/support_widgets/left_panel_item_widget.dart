@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/util/responsive.dart';
@@ -18,7 +19,7 @@ class AboutMeLeftPanelWidgetItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleGap  = Responsive.value<double>(
+    final titleGap = Responsive.value<double>(
       context,
       mobile: 8.0,
       tablet: 20.0,
@@ -42,20 +43,31 @@ class AboutMeLeftPanelWidgetItem extends StatelessWidget {
         Text(title.toUpperCase(), style: AppTextStyles.labelUppercase),
         SizedBox(height: titleGap),
         Text(preview, style: AppTextStyles.bodyR(context)),
-        if (truncated)
+        // Both the spacing and the button are guarded by the same condition.
+        if (truncated) ...[
           SizedBox(height: titleGap),
-          TextButton(
+          OutlinedButton.icon(
             onPressed: () => WorkDetailPopup.showWorkDetailPopup(
               context,
               title,
               detail,
             ),
-            style: TextButton.styleFrom(padding: EdgeInsets.zero),
-            child: const Padding(
-              padding: EdgeInsets.all(AppSpacing.sm),
-              child: Text('Read more', style: AppTextStyles.label,),
+            icon: const Icon(Icons.read_more, size: 18),
+            label: const Text('Read more'),
+            style: OutlinedButton.styleFrom(
+              foregroundColor: AppColors.lightPrimary,
+              side: const BorderSide(color: AppColors.lightPrimary),
+              textStyle: AppTextStyles.navItem,
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.md,
+                vertical: AppSpacing.sm,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppSpacing.cardPadding),
+              ),
             ),
           ),
+        ],
         SizedBox(height: detailGap),
       ],
     );

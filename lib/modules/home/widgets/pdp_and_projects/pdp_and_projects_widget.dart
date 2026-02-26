@@ -21,7 +21,7 @@ class PDPAndProjectsWidget extends StatelessWidget {
         SizedBox(height: AppSpacing.sectionTitleTopBottom(context)),
         Center(
           child: Text(
-            'Projects & Personal Development',
+            'Projects Over the Years',
             style: AppTextStyles.sectionTitleBoldR(context),
             textAlign: TextAlign.center,
           ),
@@ -40,6 +40,7 @@ class PDPAndProjectsWidget extends StatelessWidget {
 
   Widget _buildDesktopRow(BuildContext context) {
     return Stack(
+      // alignment: Alignment.center,
       children: [
         LayoutBuilder(
           builder: (_, constraints) => Center(
@@ -47,12 +48,13 @@ class PDPAndProjectsWidget extends StatelessWidget {
               'assets/images/logo/pattern5.png',
               color: CupertinoColors.inactiveGray,
               width: constraints.maxWidth,
+              height: 500,
             ),
           ),
         ),
-        SizedBox(
-          height: AppSpacing.projectSectionHeight,
+        IntrinsicHeight(
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               for (int i = 0; i < PortfolioContent.projects.length; i++)

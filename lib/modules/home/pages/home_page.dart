@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/navigation_cubit.dart';
 import '../cubit/navigation_state.dart';
 import '../widgets/about_me/about_me_widget.dart';
-import '../widgets/certs/certifications_widget.dart';
+import '../widgets/core_competencies/core_competencies_widget.dart';
 import '../widgets/contact/contact_widget.dart';
 import '../widgets/education_and_exp/education_and_exp_widget.dart';
 import '../widgets/landing/landing_widget.dart';
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     PortfolioSection.about:          GlobalKey(),
     PortfolioSection.skills:         GlobalKey(),
     PortfolioSection.experience:     GlobalKey(),
-    PortfolioSection.certifications: GlobalKey(),
+    PortfolioSection.competencies: GlobalKey(),
     PortfolioSection.pdp:            GlobalKey(),
     PortfolioSection.contact:        GlobalKey(),
   };
@@ -49,7 +49,6 @@ class _HomePageState extends State<HomePage> {
     assetCursorOnly25 = await CustomMouseCursor.asset(
       'assets/images/logo/s-logo-no-bg-crop.png',
       hotX: 18,
-      hotY: 0,
     );
   }
 
@@ -78,7 +77,6 @@ class _HomePageState extends State<HomePage> {
               horizontal: AppSpacing.pageHPadding(context),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 LandingWidget(key: _sectionKeys[PortfolioSection.home]),
                 SizedBox(height: isMobile ? AppSpacing.xl : AppSpacing.heroBottomSpacing),
@@ -88,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: AppSpacing.sectionSpacing),
                 EducationAndExperienceWidget(key: _sectionKeys[PortfolioSection.experience]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
-                CertificationsWidget(key: _sectionKeys[PortfolioSection.certifications]),
+                CoreCompetenciesWidget(key: _sectionKeys[PortfolioSection.competencies]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
                 PDPAndProjectsWidget(key: _sectionKeys[PortfolioSection.pdp]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
@@ -116,7 +114,7 @@ class _NavDrawer extends StatelessWidget {
     (label: 'ABOUT',        section: PortfolioSection.about),
     (label: 'SKILLS',       section: PortfolioSection.skills),
     (label: 'EXPERIENCE',   section: PortfolioSection.experience),
-    (label: 'CERTS',        section: PortfolioSection.certifications),
+    (label: 'STRENGTHS',     section: PortfolioSection.competencies),
     (label: 'PDP',          section: PortfolioSection.pdp),
     (label: 'CONTACT',      section: PortfolioSection.contact),
   ];
@@ -129,8 +127,8 @@ class _NavDrawer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
+            const Padding(
+              padding: EdgeInsets.symmetric(
                 horizontal: AppSpacing.md,
                 vertical: AppSpacing.lg,
               ),

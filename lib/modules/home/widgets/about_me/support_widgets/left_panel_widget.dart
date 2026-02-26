@@ -16,14 +16,6 @@ class AboutMeLeftPanelWidget extends StatelessWidget {
             title: 'Biography',
             detail: PortfolioContent.biography,
           ),
-          AboutMeLeftPanelWidgetItem(
-            title: 'Contact',
-            detail: PortfolioContent.contactDetails,
-          ),
-          AboutMeLeftPanelWidgetItem(
-            title: 'Services',
-            detail: PortfolioContent.services,
-          ),
         ],
       ),
     );

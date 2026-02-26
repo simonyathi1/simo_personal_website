@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/app_colors.dart';
 import '../../../../../core/util/responsive.dart';
 
 class CompanyGrayscaleHoverImage extends StatefulWidget {
@@ -74,7 +75,7 @@ class CompanyGrayscaleHoverImageState extends State<CompanyGrayscaleHoverImage>
                 children: [
                   ColorFiltered(
                     colorFilter: const ColorFilter.mode(
-                      Colors.grey,
+                      AppColors.lightPrimary,
                       BlendMode.srcIn,
                     ),
                     child: Image.asset(widget.imageUrl),

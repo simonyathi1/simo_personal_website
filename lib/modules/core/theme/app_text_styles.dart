@@ -123,9 +123,18 @@ abstract final class AppTextStyles {
   static TextStyle heroTitleR(BuildContext context) => heroTitle.copyWith(
         fontSize: Responsive.value(
           context,
-          mobile: 32.0,
-          tablet: 52.0,
-          desktop: 80.0,
+          mobile: 34.0,
+          tablet: 42.0,
+          desktop: 50.0,
+        ),
+      );
+
+  static TextStyle heroSubTitleR(BuildContext context) => heroTitle.copyWith(
+        fontSize: Responsive.value(
+          context,
+          mobile: 16.0,
+          tablet: 18.0,
+          desktop: 20.0,
         ),
       );
 

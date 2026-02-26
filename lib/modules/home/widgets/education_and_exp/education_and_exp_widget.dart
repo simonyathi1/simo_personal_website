@@ -10,10 +10,11 @@ class EducationAndExperienceWidget extends StatelessWidget {
   const EducationAndExperienceWidget({super.key});
 
   static const _cards = [
-    (title: 'Education: 2011 – 2016', experiences: PortfolioContent.education,     elevation: 4.0),
-    (title: '2017 – 2018',            experiences: PortfolioContent.experience2017, elevation: 8.0),
-    (title: '2019 – 2021',            experiences: PortfolioContent.experience2019, elevation: 16.0),
-    (title: '2021 – Present',         experiences: PortfolioContent.experience2021, elevation: 32.0),
+    (title: 'Education: 2011 – 2016', experiences: PortfolioContent.education,      elevation: 4.0),
+    (title: '2017 – 2018',            experiences: PortfolioContent.experience2017,  elevation: 8.0),
+    (title: '2019 – 2021',            experiences: PortfolioContent.experience2019,  elevation: 16.0),
+    (title: '2021 – 2024',            experiences: PortfolioContent.experience2021,  elevation: 32.0),
+    (title: '2024 – Present',         experiences: PortfolioContent.experience2024,  elevation: 48.0),
   ];
 
   @override

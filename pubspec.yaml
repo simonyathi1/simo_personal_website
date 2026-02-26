@@ -42,6 +42,8 @@ flutter:
     - assets/images/icons/icons8-facebook-96.png
     - assets/images/icons/icons8-at-sign-96.png
     - assets/images/icons/icons8-google-96.png
+    - assets/images/icons/linked_in.png
+    - assets/images/icons/yoco-logo.png
     - assets/images/icons/PDP2.png
     - assets/images/icons/STARTUP.png
     - assets/images/icons/WORK.png
@@ -62,6 +64,7 @@ flutter:
     - assets/images/logo/under-construction.png
     - assets/images/logo/under-construction-worker.png
     - assets/images/logo/pdf-logo.png
+    - assets/images/logo/critical_thinking.png
 
     - assets/images/Simo.jpeg
     - assets/images/contact-card.png

@@ -26,16 +26,6 @@ class AboutMeCenterPanelWidget extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Image.asset(
-                      'assets/images/logo/pattern3.png',
-                      color: CupertinoColors.inactiveGray,
-                      width: borderSize,
-                    ),
-                    Image.asset(
-                      'assets/images/logo/pattern6.png',
-                      color: CupertinoColors.inactiveGray.withOpacity(0.5),
-                      width: borderSize,
-                    ),
                     SizedBox(
                       width: borderSize,
                       height: borderSize * (AppSpacing.mainImageHeightBorder / AppSpacing.mainImageWidthBorder),

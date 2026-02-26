@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-enum PortfolioSection { home, about, skills, experience, certifications, pdp, contact }
+enum PortfolioSection { home, about, skills, experience, competencies, pdp, contact }
 
 @immutable
 class NavigationState {

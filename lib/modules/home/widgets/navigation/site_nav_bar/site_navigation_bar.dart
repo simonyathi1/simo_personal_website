@@ -80,9 +80,9 @@ class _DesktopNavBar extends StatelessWidget {
                         itemSize: itemSize,
                       ),
                       _NavBarItem(
-                        title: 'CERTS',
-                        section: PortfolioSection.certifications,
-                        isActive: state.activeSection == PortfolioSection.certifications,
+                        title: 'STRENGTHS',
+                        section: PortfolioSection.competencies,
+                        isActive: state.activeSection == PortfolioSection.competencies,
                         sectionKeys: sectionKeys,
                         itemSize: itemSize,
                       ),
@@ -107,7 +107,7 @@ class _DesktopNavBar extends StatelessWidget {
                 SizedBox(
                   height: AppSpacing.navBarLogoHeight,
                   child: Image.asset(
-                    'images/logo/S-no-border-small.png',
+                    'assets/images/logo/S-no-border-small.png',
                     color: AppColors.lightPrimary,
                   ),
                 ),
@@ -121,7 +121,10 @@ class _DesktopNavBar extends StatelessWidget {
           ),
           Expanded(
             flex: 5,
-            child: SocialSectionWidget(originalColor: AppColors.lightPrimary),
+            child: Padding(
+              padding: EdgeInsets.only(right: leftPad),
+              child: const SocialSectionWidget(originalColor: AppColors.lightPrimary),
+            ),
           ),
         ],
       ),
@@ -155,7 +158,7 @@ class _MobileNavBar extends StatelessWidget {
             PortfolioContent.brandName.replaceAll('\n', ' '),
             style: AppTextStyles.navBrand.copyWith(letterSpacing: 2),
           ),
-          SocialSectionWidget(
+          const SocialSectionWidget(
             originalColor: AppColors.lightPrimary,
             compact: true,
           ),

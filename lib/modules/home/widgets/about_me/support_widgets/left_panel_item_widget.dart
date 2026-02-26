@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/util/responsive.dart';
+import '../../pdp_and_projects/support_widgets/work_detail_popup.dart';
+
+const int _kPreviewLimit = 750;
 
 class AboutMeLeftPanelWidgetItem extends StatelessWidget {
   final String title;
@@ -28,12 +31,31 @@ class AboutMeLeftPanelWidgetItem extends StatelessWidget {
       desktop: AppSpacing.aboutItemDetailGap,
     );
 
+    final bool truncated = detail.length > _kPreviewLimit;
+    final String preview = truncated
+        ? '${detail.substring(0, _kPreviewLimit)}...'
+        : detail;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title.toUpperCase(), style: AppTextStyles.labelUppercase),
         SizedBox(height: titleGap),
-        Text(detail, style: AppTextStyles.bodyR(context)),
+        Text(preview, style: AppTextStyles.bodyR(context)),
+        if (truncated)
+          SizedBox(height: titleGap),
+          TextButton(
+            onPressed: () => WorkDetailPopup.showWorkDetailPopup(
+              context,
+              title,
+              detail,
+            ),
+            style: TextButton.styleFrom(padding: EdgeInsets.zero),
+            child: const Padding(
+              padding: EdgeInsets.all(AppSpacing.sm),
+              child: Text('Read more', style: AppTextStyles.label,),
+            ),
+          ),
         SizedBox(height: detailGap),
       ],
     );

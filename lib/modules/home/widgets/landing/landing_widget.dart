@@ -17,10 +17,20 @@ class LandingWidget extends StatelessWidget {
       ),
       child: Container(
         padding: const EdgeInsets.all(AppSpacing.xl),
-        child: Text(
-          PortfolioContent.heroTitle,
-          style: AppTextStyles.heroTitleR(context),
-          textAlign: isMobile ? TextAlign.start : TextAlign.center,
+        child: Column(
+          children: [
+            Text(
+              PortfolioContent.heroTitle,
+              style: AppTextStyles.heroTitleR(context),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: AppSpacing.md,),
+            Text(
+              PortfolioContent.heroSubTitle,
+              style: AppTextStyles.heroSubTitleR(context),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

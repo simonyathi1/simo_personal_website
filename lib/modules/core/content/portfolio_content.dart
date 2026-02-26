@@ -8,156 +8,245 @@ import '../models/social_link.dart';
 abstract final class PortfolioContent {
   // ── Identity ────────────────────────────────────────────────────────────────
 
-  static const String fullName    = 'Onesimo Nyathi';
-  static const String brandName   = 'SIMO\nNYATHI';
-  static const String heroTitle   =
-      'Onesimo Nyathi\nSnr. Android & Flutter Developer\n& aspiring Software Solutions Architect';
-  static const String splashLine  = 'Simo, to the world!';
+  static const String fullName = 'Onesimo "Simo" Nyathi';
+  static const String brandName = 'SIMO\nNYATHI';
+  static const String heroTitle = 'Onesimo "Simo" Nyathi';
+  static const String heroSubTitle =
+      'Staff Mobile Engineer 👨🏾‍💻| Problem Solver 💡| Amateur Farmer 👨🏽‍🌾 | Dog Person 🐕‍🦺🦮| Seeker of Knowledge 📖📚| #BornToLead';
+  static const String splashLine = 'Simo, to the world!';
 
   // ── Contact ─────────────────────────────────────────────────────────────────
 
-  static const String location        = 'Johannesburg, SA';
-  static const String primaryEmail    = 'simonyathi1@gmail.com';
-  static const String businessEmail   = 'onesimonyathi@fidelitech.co.za';
-  static const String phone           = '(+27) 73 071 2536';
-  static const String footerCopyright = '© 2024. Onesimo Nyathi, by FideliTech';
+  static const String location = 'Johannesburg, SA';
+  static const String primaryEmail = 'simonyathi1@gmail.com';
+  static const String businessEmail = 'onesimonyathi@fidelitech.co.za';
+  static const String phone = '(+27) 73 071 2536';
+  static const String footerCopyright = '© 2026. Onesimo Nyathi, by FideliTech';
 
   /// Pre-composed contact block for use in const contexts.
-  static const String contactDetails =
-      'Johannesburg, SA\n'
+  static const String contactDetails = 'Johannesburg, SA\n'
       'simonyathi1@gmail.com\n'
       '(+27) 73 071 2536';
 
   // ── Biography ────────────────────────────────────────────────────────────────
 
   static const String biography =
-      'I get paid to solve problems using various Mobile Application development tools. '
-      'I am a very driven and ambitious person with an exceptional love for learning, '
-      'growth, and continuous improvement';
+      'My name is Onesimo Nyathi — though most people call me Simo (it saves time 😄).'
+      '\n\nI am a Staff Mobile Engineer with 9+ years of experience working on '
+      'large-scale Android, Flutter, Kotlin & Compose Multiplatform applications in the banking, fintech and health & Fitness '
+      'sectors — environments where reliability isn’t a “nice-to-have,” it’s existential..'
+
+      '\n\nI endeavour to build systems people trust.'
+
+      '\n\nBy day, I work in the payments space at YOCO, designing and contributing to '
+      'secure, reliable mobile payment platforms. Over the years, I’ve grown from writing features to thinking in systems:'
+      '\n\n▪️How does this scale?'
+      '\n▪️What fails first?'
+      '\n▪️How do we reduce cognitive load for the next engineer?'
+      '\n▪️How do we design this so it survives growth?'
+
+      '\n\nI care deeply about architecture — modular systems, clean boundaries, deterministic state management, '
+      'and long-term maintainability. I enjoy solving hard technical problems, especially where asynchronous systems, '
+      'SDK integrations, and real-world constraints meet.'
+      '\n\nBut I am not just technical.'
+      "\nI am fascinated by people. It's as St Augustine of Hippo said, "
+      "'And men go abroad to admire the heights of mountains, the mighty waves of the sea, the broad tides of rivers, "
+      "the compass of the ocean, and the circuits of the stars, yet pass over the mystery of themselves without any wonder'"
+
+      '\n\nI’ve learned that strong architecture is only half the equation — strong relationships are the other half. '
+      'I invest in understanding teammates, stakeholders, and managers so that collaboration becomes natural. '
+      'Former teams are always willing to work with me again. That says more than any bullet point ever could.'
+
+      '\n\nOutside of engineering, I live on agricultural land raising chickens, rabbits, and a fluffy pack of Rotties🐕‍🦺 (just 5 😅). '
+      'On weekends I trade Kotlin for soil. Farming constantly reminds me that systems thinking isn’t just theoretical:'
+      '\n\n▪️Inputs matter.'
+      '\n▪️Timing matters.'
+      '\n▪️Feedback loops matter.'
+      '\n▪️Neglect compounds.'
+      '\n▪️Patience yields results.'
+      ''
+      '\n\nThe same applies to software.'
+      '\n\nI work hard. I demand a lot from myself. I give my best consistently — not loudly, '
+      'but deliberately — in the belief that excellence compounds over time.'
+      '\n\nI enjoy intelligent conversations. I enjoy a good laugh. I’m light-hearted, '
+      'but serious about impact. A joy to manage, and just as much a joy to follow when someone needs a leader.'
+      '\n\nIf you enjoy talking architecture, payments, platform design, leadership, or even agriculture — let’s connect!'
+      '\n\n— Simo'
+      "\n\n** PS: Same goes to you if you're hiring 😉.";
 
   static const String services =
-      'Android Development\nFlutter Development\nMobile Architect';
+      'Payment Platform Engineering\nSDK & Platform Architecture\nCross-Platform Systems (Android + Flutter)';
 
   // ── Stats ────────────────────────────────────────────────────────────────────
 
-  static const String yearsOfExperience = '7+';
-  static const String companiesWorkedFor = '4';
-  static const String corporateProjects  = '8';
+  static const String yearsOfExperience = '9+';
+  static const String companiesWorkedFor = '7';
+  static const String corporateProjects = '10+';
 
   // ── Skills ───────────────────────────────────────────────────────────────────
 
   static const List<SkillItem> skills = [
-    SkillItem(imageAsset: 'assets/images/logo/android-logo-selected.png', name: 'Android',      level: 89),
-    SkillItem(imageAsset: 'assets/images/logo/kotlin-logo.png',           name: 'Kotlin',       level: 85),
-    SkillItem(imageAsset: 'assets/images/logo/flutter.png',               name: 'Flutter',      level: 86),
-    SkillItem(imageAsset: 'assets/images/logo/Java-logo.png',             name: 'Java',         level: 83),
-    SkillItem(imageAsset: 'assets/images/logo/Architecture.png',          name: 'Architecture', level: 45),
+    SkillItem(
+        imageAsset: 'assets/images/logo/android-logo-selected.png',
+        name: 'Android',
+        level: 92),
+    SkillItem(
+        imageAsset: 'assets/images/logo/kotlin-logo.png',
+        name: 'Kotlin',
+        level: 85),
+    SkillItem(
+        imageAsset: 'assets/images/logo/flutter.png',
+        name: 'Flutter',
+        level: 86),
+    SkillItem(
+        imageAsset: 'assets/images/logo/Architecture.png',
+        name: 'Architecture',
+        level: 82),
+    SkillItem(
+        imageAsset: 'assets/images/logo/critical_thinking.png',
+        name: 'Critical Thinking',
+        level: 90),
   ];
 
   // ── Education & Experience ────────────────────────────────────────────────────
 
   static const List<ExperienceItem> education = [
-    ExperienceItem(role: 'High School Matriculation',  organisation: 'Veritas College, Springs'),
-    ExperienceItem(role: 'BSc Computer Science & IT',  organisation: 'UKZN, Pietermaritzburg'),
-    ExperienceItem(role: 'BScHons Computer Science',   organisation: 'UKZN, Pietermaritzburg'),
+    ExperienceItem(
+        role: 'High School Matriculation',
+        organisation: 'Veritas College, Springs'),
+    ExperienceItem(
+        role: 'BSc Computer Science & IT',
+        organisation: 'UKZN, Pietermaritzburg'),
+    ExperienceItem(
+        role: 'BScHons Computer Science',
+        organisation: 'UKZN, Pietermaritzburg'),
   ];
 
   static const List<ExperienceItem> experience2017 = [
-    ExperienceItem(role: 'Intern – Associate level Developer', organisation: 'Reverside Consulting'),
-    ExperienceItem(role: 'Junior Android Developer',           organisation: 'ABSA – (Reverside)'),
+    ExperienceItem(
+        role: 'Intern – Associate level Developer',
+        organisation: 'Reverside Consulting'),
+    ExperienceItem(
+        role: 'Junior Android Developer', organisation: 'ABSA – (Reverside)'),
   ];
 
   static const List<ExperienceItem> experience2019 = [
-    ExperienceItem(role: 'Junior – Intermediate Android Developer', organisation: 'DVT – Consulting'),
-    ExperienceItem(role: 'Junior Android Developer',                organisation: 'Mukuru – (DVT)'),
-    ExperienceItem(role: 'Intermediate Android Developer',          organisation: 'Standard Bank – (DVT)'),
-    ExperienceItem(role: 'Intermediate Android Developer',          organisation: 'ABSA – (DVT)'),
+    ExperienceItem(
+        role: 'Junior – Intermediate Android Developer',
+        organisation: 'DVT – Consulting'),
+    ExperienceItem(
+        role: 'Junior Android Developer', organisation: 'Mukuru – (DVT)'),
+    ExperienceItem(
+        role: 'Intermediate Android Developer',
+        organisation: 'Standard Bank – (DVT)'),
+    ExperienceItem(
+        role: 'Intermediate Android Developer', organisation: 'ABSA – (DVT)'),
   ];
 
   static const List<ExperienceItem> experience2021 = [
-    ExperienceItem(role: 'Senior Android Developer', organisation: 'Cruze Control – Consulting'),
-    ExperienceItem(role: 'Senior Android Developer', organisation: 'Discovery – Vitality Global – (Cruze Control)'),
-    ExperienceItem(role: 'Senior Android Developer', organisation: 'Discovery – Vitality Global – Permanent'),
+    ExperienceItem(
+        role: 'Senior Android Developer',
+        organisation: 'Cruze Control – Consulting'),
+    ExperienceItem(
+        role: 'Senior Android Developer',
+        organisation: 'Discovery – Vitality Global – (Cruze Control)'),
+    ExperienceItem(
+        role: 'Senior Android Developer',
+        organisation: 'Discovery – Vitality Global – Permanent'),
+  ];
+
+  static const List<ExperienceItem> experience2024 = [
+    ExperienceItem(
+        role: 'Senior Android Engineer – Payments', organisation: 'YOCO'),
   ];
 
   // ── Projects & PDP ───────────────────────────────────────────────────────────
 
-  static const String _workDetail = '''
-  My Journey with Discovery has had me wear multiple hats ranging from Android Mobile App Support, to operating as my Manager's Second in command (2iC), to running the 
-  Scrum sessions as a "pseudo-Scrum Master", as well as full-time development for Android, Flutter, and a bit of Flutter. But let me share my current station: Senior Mobile Engineer. 
-  
-  I work as an Android Developer within a cross-skilled team in Discovery's Vitality Global Organization (VG). We work on a critical Modular component 
-  of VG's suite of Applications. This Modular Library (The Health SDK) is natively written in Kotlin and it centralizes a core function of the Vitality Applications.
-  
-  My day is spent on working on working on new functionality for the SDK, enhancing the existing functionality, bug fixing, as well as engaging in various sessions related to the product 
-  including live debug sessions, demonstrations, product training, and support calls etc. I am also involved in documenting and reviewing documentation for the features we work on. I 
-  am involved in PR Reviewing as well as Architectural Design discussions.
-  
-  I have also taken up additional responsibility by adding a Flutter-based library which facilitates the communication of the Native Health SDKs (Android and iOS) with
-  Flutter-built applications. This means that we now build a single App in Flutter and leverage the same native libraries without the need to rewrite them in dart. This has had me continuing 
-  my work as one of the SMEs on the Native Android SDK while gaining more context on the Swift-based iOS counterpart due to the necessary exposure during the bridge-building process.
-  
-  My goal at work is to be open to new learning and growth opportunities, to be unafraid of exposing myself to the risks of failing at something new (iOS), and to always put my hand up to assist. 
-  
-  The Skills I have gained include Android, Kotlin, Flutter, Swift, Software Design, Critical Thinking, Problem Solving, Leadership, Communication, Collaboration, Accountability and Ownership''';
+  static const String _yocoDetail = '''
+  At YOCO I work as a Staff Android Engineer embedded within the payments platform team, contributing to the design and delivery of mobile payment infrastructure used on the YOCO Card machines.
 
-  static const String _pdpDetail = '''
-  This portion highlights my Personal Development Plan. It highlights a plan centered mostly around my career as a software developer and the trajectory and direction I plan 
-  to take it towards. I am currently a Senior Android/ Mobile Engineer and I enjoy the challenges I get to face as far as my job is concerned. There are mainly 3 designations I have identified
-  for this journey, namely, Mobile, Solutions, and Enterprise Architect. 
-  
-  1) The Mobile Architect.
-  Primarily specializes in designing and developing mobile applications using various Mobile Application Development Frameworks with an emphasized responsibility to Develop the architecture
-  design for mobile platforms, mainly, iOS and Android while making sure apps meet performance, security, and scalability requirements.
-  
-  2) The Solutions Architect.
-  Involved in the architecting of solutions for business-related problems by analyzing business requirements and translating them into technical solutions. They use their 
-  skills to come up with architecturally sound solutions that integrate well with existing solutions.
-  
-  3) The Enterprise Architect.
-  They develop and maintain the overall IT strategy and architecture for an entire organization. They are responsible for creating a high-level IT roadmap aligning IT strategy with business goals.
-  They ensure consistency and standardization across the IT landscape as well as providing guidance on decisions on IT investments, standards, and policies.
-   
-  For 2024, I have set myself a goal of becoming a Competent Mobile Architect and mastering the process of designing Mobile Applications in various ways depending on the specific needs and requirements. I aim to 
-  master the design principles that will allow me to build Clean, Robust, Testable, Scalable, and Maintainable Applications. I am building up the requisite fundamentals to become a 
-  fully fledged Mobile Architect focussed on creating solutions for iOS and Android using Android, iOS, and Flutter development frameworks''';
+  The core challenge of this role is reliability: payment systems must be deterministic. A transaction either succeeds or it fails — and both outcomes must be handled with precision. 
+  My work spans the full transaction lifecycle, from the moment a user initiates a payment through to confirmation, failure recovery, and retry coordination.
 
-  static const String _personalProjectDetail = '''
-  This highlights the details of my current personal/ outside-of-work projects
-  
-  At this moment, my current project is centered around this website. This is an on-going project I have committed to building as I improve my skills. It is a simple showcase of
-  some of my skills, my work, my progress towards some of my goals. I hope to use it as a page on-which I can silently inspire up and coming Developers, or where I can present a glimpse into who 
-  I am for any potential future employers/ partners. This is going to be a bit more than just development related. I hope to use it to showcase some of my other projects and endeavours beyond tech.
-  It will evolve as time goes and allows. 
-  
-  I am writing this using Flutter and Dart. I aim to use it as a playground through which I can play with various development tools and widgets. I aim to make it dynamic and make it open to interaction.
-  
-  I hope it evolves into something people might like.''';
+  Key architectural focus areas include:
+
+  1) Transaction Flow Reliability.
+  Designing and reinforcing the sequencing of payment state transitions to ensure consistency,
+   even under adverse network conditions or device interruptions.
+
+  2) SDK Abstraction Layers.
+  Contributing to the design of modular SDK boundaries that separate payment concerns from presentation logic, enabling safe iteration without destabilising core payment flows.
+
+  3) Token Lifecycle Management.
+  Working with secure token handling patterns to ensure credentials and session tokens are managed safely throughout their lifecycle.
+
+  4) Exceptional User Experience.
+  Bringing the cutting edge features to life, for the pure benefit of our merchants and their customers' experience during payments.
+
+  This role has sharpened my thinking around what it means to build payment-grade software: deterministic, resilient, secure, and observable. The experience continues to deepen my architectural instincts and positions me toward Principal-level ownership of platform concerns.''';
+
+  static const String _discoveryDetail = '''
+  At Discovery Vitality Global I worked across two phases: an initial production support and team leadership phase, 
+  followed by a focused SDK engineering phase within a cross-functional mobile team.
+
+  Phase 1 — Support & Leadership (2021 – 2022):
+  I operated as the Dev Lead for the development team, ran Scrum ceremonies, managed team capacity alongside the Dev Manager, and led a team of 6 Senior and 2 Junior Developers. 
+  I also initiated and built an internal Flutter desktop tool — the Vitality ZoolBox — to reduce manual effort and human error in the Maintenance and Support team.
+
+  Phase 2 — Health SDK Engineering (2023 – 2024):
+  I moved to a new team focused on the Health SDK: a modular Kotlin library centralising a core fitness-event 
+  processing function consumed by multiple market applications across Vitality's global product suite.
+
+  Architectural responsibilities included:
+  - Modularising shared SDK components to improve maintainability and reduce coupling across product teams
+  - Separating business logic from presentation concerns to enable safe, independent iteration
+  - Designing and building a Flutter bridge library that enabled the native Android and iOS SDKs to communicate with Flutter-based applications — eliminating the need to rewrite native logic in Dart
+  - Participating in architectural design decisions and influencing the team's direction across 8+ engineers
+
+  This role established me as an SME on the Android SDK and exposed me to the iOS Swift counterpart through the bridge-building process. It was the role that transitioned me from feature-focused engineering into architecture-oriented platform thinking.''';
+
+  static const String _bankingDetail = '''
+  My enterprise banking experience spans two of South Africa's largest financial institutions — Standard Bank and ABSA — where I worked as a consultant embedded within their core mobile banking teams.
+
+  Standard Bank (2019 – June 2020):
+  Worked on the Standard Bank mobile app, implementing the DebiCheck feature — a new debit order authentication mechanism regulated by PASA. This required precise adherence to compliance constraints while delivering production-quality features within an Agile team. I adopted MVVM, Jetpack Navigation, LiveData, Kotlin, Dagger, and Retrofit as part of a broader Jetpack standardisation effort across the app.
+
+  ABSA (2017 & 2018 via Reverside | 2020 & 2021 via DVT):
+  I contributed to the ABSA mobile app across two separate consulting engagements spanning both the Reverside and DVT periods. 
+  During the 2018 ABSA rebrand, I implemented redesigned features and UI components. In the later engagement, I continued front-end Android development using the single-activity architecture and Jetpack components.
+
+  Key lessons from enterprise banking:
+  - Architectural consistency is the foundation of team-scale delivery. MVVM standardisation reduced cognitive load and improved review velocity.
+  - Compliance constraints shape architecture — features cannot simply be shipped; they must be auditable and verifiable.
+  - Code review culture is a first-class engineering practice, not an afterthought.
+  - Dependency injection (Dagger) at scale requires disciplined module boundaries from the start.
+
+  These engagements established the architectural discipline and production rigour that I carry into every role today.''';
 
   static const List<ProjectItem> projects = [
     ProjectItem(
       imageAsset: 'assets/images/icons/WORK.png',
-      title: 'Work',
-      projectName: 'Vitality Global',
+      title: 'YOCO',
+      projectName: 'Payment Platform Engineering',
       projectSummary:
-          'Working as a Snr. Mobile Engineer at Discovery - Vitality Global. My focus on is Android, Kotlin, Flutter, and Software Architecture',
-      projectDetail: _workDetail,
+          'Designing secure, reliable, and extensible mobile payment systems at YOCO. Focus on transaction lifecycle, SDK abstraction, and failure-state resilience in a high-availability payments environment.',
+      projectDetail: _yocoDetail,
     ),
     ProjectItem(
       imageAsset: 'assets/images/icons/PDP2.png',
-      title: 'PDP',
-      projectName: 'Road to Mobile Solutions Architect',
+      title: 'Discovery',
+      projectName: 'Modular Health SDK – Vitality Global',
       projectSummary:
-          'My Personal Development Target for 2024 is to transition into a Mobile Solutions Architect. My focus is on System Design, Android, iOS, Flutter, and Web/ Backend Architecture',
-      projectDetail: _pdpDetail,
+          'Reusable SDK supporting multiple product integrations across a cross-functional team of 8+ engineers. Focused on modular architecture, Flutter–Native bridge engineering, and platform-wide maintainability.',
+      projectDetail: _discoveryDetail,
     ),
     ProjectItem(
       imageAsset: 'assets/images/icons/STARTUP.png',
-      title: 'FideliTech',
-      projectName: "Simo's Website",
+      title: 'Banking',
+      projectName: 'Enterprise Banking – ABSA & Standard Bank',
       projectSummary:
-          'This is my Personal/ personal company (FideliTech) project where I build personal and client Solutions while leveraging skills gained at Work and on my PDP journey',
-      projectDetail: _personalProjectDetail,
+          'Production-grade mobile banking feature delivery at two of South Africa\'s largest financial institutions, under compliance constraints and within large-scale Agile teams.',
+      projectDetail: _bankingDetail,
     ),
   ];
 
@@ -165,24 +254,19 @@ abstract final class PortfolioContent {
 
   static const List<SocialLink> socialLinks = [
     SocialLink(
+      imageAsset: 'assets/images/icons/linked_in.png',
+      url: 'https://www.linkedin.com/in/onesimo-nyathi-877723a9/',
+      label: 'LinkedIn',
+    ),
+    SocialLink(
       imageAsset: 'assets/images/icons/icons8-twitter-96.png',
       url: 'https://twitter.com/SimoNyathi',
       label: 'Twitter',
     ),
     SocialLink(
-      imageAsset: 'assets/images/icons/icons8-facebook-96.png',
-      url: 'https://facebook.com/',
-      label: 'Facebook',
-    ),
-    SocialLink(
       imageAsset: 'assets/images/icons/icons8-at-sign-96.png',
       url: 'mailto:$primaryEmail',
       label: 'Email',
-    ),
-    SocialLink(
-      imageAsset: 'assets/images/icons/icons8-google-96.png',
-      url: 'https://google.com/',
-      label: 'Google',
     ),
   ];
 }

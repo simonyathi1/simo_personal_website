@@ -21,7 +21,7 @@ class ExperienceCardItem extends StatelessWidget {
       context,
       mobile: AppTextStyles.cardTitle.copyWith(fontSize: 18),
       tablet: AppTextStyles.cardTitle,
-      desktop: AppTextStyles.cardTitle,
+      desktop: AppTextStyles.cardTitle.copyWith(fontSize: 18),
     );
 
     return Padding(

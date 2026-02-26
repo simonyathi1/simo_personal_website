@@ -75,11 +75,11 @@ class GrayScaleHoverImageState extends State<GrayscaleHoverImage>
       onEnter: (_) => _setHover(true),
       onExit: (_) => _setHover(false),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: widget.width > 50 ? BoxDecoration(
           border: Border.all(color: AppColors.lightCardBackground),
           borderRadius: BorderRadius.circular(360.0),
-        ),
-        padding: const EdgeInsets.all(25),
+        ): null,
+        padding: widget.width > 50 ? const EdgeInsets.all(25) : const EdgeInsets.all(0),
         constraints: BoxConstraints.tight(Size(widget.width, widget.height)),
         child: isTouch
             // Touch screen: always show full colour, no greyscale.
@@ -90,7 +90,7 @@ class GrayScaleHoverImageState extends State<GrayscaleHoverImage>
                 children: [
                   ColorFiltered(
                     colorFilter: const ColorFilter.mode(
-                      Colors.grey,
+                      AppColors.lightPrimary,
                       BlendMode.srcIn,
                     ),
                     child: Image.asset(widget.imageUrl),

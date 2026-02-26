@@ -47,18 +47,18 @@ class FooterWidget extends StatelessWidget {
   }
 
   Widget _buildMobileFooter() {
-    return Padding(
-      padding: const EdgeInsets.all(AppSpacing.footerPadding),
+    return const Padding(
+      padding: EdgeInsets.all(AppSpacing.footerPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SocialSectionWidget(originalColor: AppColors.lightPrimary),
-          const SizedBox(height: AppSpacing.md),
-          const Text(PortfolioContent.primaryEmail,  style: AppTextStyles.footerCaption),
-          const Text(PortfolioContent.businessEmail, style: AppTextStyles.footerCaption),
-          const SizedBox(height: AppSpacing.md),
-          const Text(PortfolioContent.footerCopyright, style: AppTextStyles.footerCaption),
-          const SizedBox(height: AppSpacing.md),
+          SocialSectionWidget(originalColor: AppColors.lightPrimary),
+          SizedBox(height: AppSpacing.md),
+          Text(PortfolioContent.primaryEmail,  style: AppTextStyles.footerCaption),
+          Text(PortfolioContent.businessEmail, style: AppTextStyles.footerCaption),
+          SizedBox(height: AppSpacing.md),
+          Text(PortfolioContent.footerCopyright, style: AppTextStyles.footerCaption),
+          SizedBox(height: AppSpacing.md),
         ],
       ),
     );

@@ -33,6 +33,7 @@ class CompaniesWidget extends StatelessWidget {
                   CompanyItemWidget(imageUrl: 'assets/images/companies/standard-bank-logo.png'),
                   CompanyItemWidget(imageUrl: 'assets/images/companies/discovery.png'),
                   CompanyItemWidget(imageUrl: 'assets/images/companies/vitality-logo.png'),
+                  CompanyItemWidget(imageUrl: 'assets/images/icons/yoco-logo.png'),
                 ],
               ),
             ),

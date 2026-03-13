@@ -20,7 +20,7 @@ abstract final class PortfolioContent {
   static const String location = 'Johannesburg, SA';
   static const String primaryEmail = 'simonyathi1@gmail.com';
   static const String businessEmail = 'onesimonyathi@fidelitech.co.za';
-  static const String phone = '(+27) 73 071 2536';
+  static const String phone = '(+27) 78 071 2536';
   static const String footerCopyright = '© 2026. Onesimo Nyathi, by FideliTech';
 
   /// Pre-composed contact block for use in const contexts.
@@ -34,7 +34,7 @@ abstract final class PortfolioContent {
       'My name is Onesimo Nyathi — though most people call me Simo (it saves time 😄).'
       '\n\nI am a Staff Mobile Engineer with 9+ years of experience working on '
       'large-scale Android, Flutter, Kotlin & Compose Multiplatform applications in the banking, fintech and health & Fitness '
-      'sectors — environments where reliability isn’t a “nice-to-have,” it’s existential..'
+      'sectors — environments where reliability isn’t a “nice-to-have,” but fundamental.'
 
       '\n\nI endeavour to build systems people trust.'
 
@@ -45,11 +45,10 @@ abstract final class PortfolioContent {
       '\n▪️How do we reduce cognitive load for the next engineer?'
       '\n▪️How do we design this so it survives growth?'
 
-      '\n\nI care deeply about architecture — modular systems, clean boundaries, deterministic state management, '
-      'and long-term maintainability. I enjoy solving hard technical problems, especially where asynchronous systems, '
-      'SDK integrations, and real-world constraints meet.'
+      '\n\nI have developed a keen interest in architecture — modular systems, clean boundaries, deterministic state management, '
+      'and long-term maintainability. I enjoy solving hard technical problems.'
       '\n\nBut I am not just technical.'
-      "\nI am fascinated by people. It's as St Augustine of Hippo said, "
+      "\nI am fascinated by people, their brilliance, their quirks, their stories, and their victories and triumphs. It's as St Augustine of Hippo said, "
       "'And men go abroad to admire the heights of mountains, the mighty waves of the sea, the broad tides of rivers, "
       "the compass of the ocean, and the circuits of the stars, yet pass over the mystery of themselves without any wonder'"
 
@@ -58,7 +57,7 @@ abstract final class PortfolioContent {
       'Former teams are always willing to work with me again. That says more than any bullet point ever could.'
 
       '\n\nOutside of engineering, I live on agricultural land raising chickens, rabbits, and a fluffy pack of Rotties🐕‍🦺 (just 5 😅). '
-      'On weekends I trade Kotlin for soil. Farming constantly reminds me that systems thinking isn’t just theoretical:'
+      'On weekends I trade Kotlin for soil (👈🏾classic chat GPT line 🤣). Farming constantly reminds me that systems thinking isn’t just theoretical:'
       '\n\n▪️Inputs matter.'
       '\n▪️Timing matters.'
       '\n▪️Feedback loops matter.'
@@ -68,7 +67,7 @@ abstract final class PortfolioContent {
       '\n\nThe same applies to software.'
       '\n\nI work hard. I demand a lot from myself. I give my best consistently — not loudly, '
       'but deliberately — in the belief that excellence compounds over time.'
-      '\n\nI enjoy intelligent conversations. I enjoy a good laugh. I’m light-hearted, '
+      '\n\nI enjoy intelligent conversations, that\'s why you might find me talking alone from time to time 😅. I enjoy a good laugh. I’m light-hearted, '
       'but serious about impact. A joy to manage, and just as much a joy to follow when someone needs a leader.'
       '\n\nIf you enjoy talking architecture, payments, platform design, leadership, or even agriculture — let’s connect!'
       '\n\n— Simo'
@@ -163,7 +162,7 @@ abstract final class PortfolioContent {
   // ── Projects & PDP ───────────────────────────────────────────────────────────
 
   static const String _yocoDetail = '''
-  At YOCO I work as a Staff Android Engineer embedded within the payments platform team, contributing to the design and delivery of mobile payment infrastructure used on the YOCO Card machines.
+  At YOCO I work as a Staff Android Engineer within the payments platform team, contributing to the design and delivery of mobile payment infrastructure used on the YOCO Card machines.
 
   The core challenge of this role is reliability: payment systems must be deterministic. A transaction either succeeds or it fails — and both outcomes must be handled with precision. 
   My work spans the full transaction lifecycle, from the moment a user initiates a payment through to confirmation, failure recovery, and retry coordination.
@@ -177,25 +176,20 @@ abstract final class PortfolioContent {
   2) SDK Abstraction Layers.
   Contributing to the design of modular SDK boundaries that separate payment concerns from presentation logic, enabling safe iteration without destabilising core payment flows.
 
-  3) Token Lifecycle Management.
-  Working with secure token handling patterns to ensure credentials and session tokens are managed safely throughout their lifecycle.
-
-  4) Exceptional User Experience.
+  3) Exceptional User Experience.
   Bringing the cutting edge features to life, for the pure benefit of our merchants and their customers' experience during payments.
 
-  This role has sharpened my thinking around what it means to build payment-grade software: deterministic, resilient, secure, and observable. The experience continues to deepen my architectural instincts and positions me toward Principal-level ownership of platform concerns.''';
+  This role has taught me self-leadership. As an individual contributor Staff Engineer, we lead by leading ourselves. It teaches you how to lead without leading.''';
 
   static const String _discoveryDetail = '''
-  At Discovery Vitality Global I worked across two phases: an initial production support and team leadership phase, 
-  followed by a focused SDK engineering phase within a cross-functional mobile team.
+  At Discovery Vitality Global I worked across two phases: an initial L3 Production Support and Team leadership phase, followed by a focused Kotlin SDK engineering phase within a cross-functional mobile team of seniors.
 
   Phase 1 — Support & Leadership (2021 – 2022):
-  I operated as the Dev Lead for the development team, ran Scrum ceremonies, managed team capacity alongside the Dev Manager, and led a team of 6 Senior and 2 Junior Developers. 
-  I also initiated and built an internal Flutter desktop tool — the Vitality ZoolBox — to reduce manual effort and human error in the Maintenance and Support team.
+  I was a Dev Lead, operating as the 2IC to the Dev Manager for the L3 development team. The team comprised of 6 Senior (2 Mobile, and 4 Java) and 2 Junior Developers. I ran Scrum ceremonies, managed team capacity alongside the Dev Manager. Offered status updates to internal and external stakeholders.
+  I also initiated and built an internal Flutter desktop tool — the Vitality ZoolBox — to reduce manual effort and human error in the Maintenance and Support team. 
 
   Phase 2 — Health SDK Engineering (2023 – 2024):
-  I moved to a new team focused on the Health SDK: a modular Kotlin library centralising a core fitness-event 
-  processing function consumed by multiple market applications across Vitality's global product suite.
+  I moved to a new team focused on the Health SDK: a modular Kotlin library centralising the core fitness-event processing function consumed by multiple market applications across Vitality Global's product suite.
 
   Architectural responsibilities included:
   - Modularising shared SDK components to improve maintainability and reduce coupling across product teams

@@ -36,7 +36,7 @@ void main() {
 
     test('NavigationState inequality for different sections', () {
       const s1 = NavigationState(activeSection: PortfolioSection.contact);
-      const s2 = NavigationState(activeSection: PortfolioSection.pdp);
+      const s2 = NavigationState(activeSection: PortfolioSection.projects);
       expect(s1, isNot(equals(s2)));
     });
 

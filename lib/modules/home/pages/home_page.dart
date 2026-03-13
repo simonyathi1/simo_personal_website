@@ -30,13 +30,13 @@ class _HomePageState extends State<HomePage> {
   late CustomMouseCursor assetCursorOnly25;
 
   final _sectionKeys = <PortfolioSection, GlobalKey>{
-    PortfolioSection.home:           GlobalKey(),
-    PortfolioSection.about:          GlobalKey(),
-    PortfolioSection.skills:         GlobalKey(),
-    PortfolioSection.experience:     GlobalKey(),
+    PortfolioSection.home: GlobalKey(),
+    PortfolioSection.about: GlobalKey(),
+    PortfolioSection.skills: GlobalKey(),
+    PortfolioSection.experience: GlobalKey(),
     PortfolioSection.competencies: GlobalKey(),
-    PortfolioSection.pdp:            GlobalKey(),
-    PortfolioSection.contact:        GlobalKey(),
+    PortfolioSection.projects: GlobalKey(),
+    PortfolioSection.contact: GlobalKey(),
   };
 
   @override
@@ -79,18 +79,25 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 LandingWidget(key: _sectionKeys[PortfolioSection.home]),
-                SizedBox(height: isMobile ? AppSpacing.xl : AppSpacing.heroBottomSpacing),
+                SizedBox(
+                    height: isMobile
+                        ? AppSpacing.xl
+                        : AppSpacing.heroBottomSpacing),
                 AboutMeWidget(key: _sectionKeys[PortfolioSection.about]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
                 SkillsWidget(key: _sectionKeys[PortfolioSection.skills]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
-                EducationAndExperienceWidget(key: _sectionKeys[PortfolioSection.experience]),
+                EducationAndExperienceWidget(
+                    key: _sectionKeys[PortfolioSection.experience]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
-                CoreCompetenciesWidget(key: _sectionKeys[PortfolioSection.competencies]),
+                CoreCompetenciesWidget(
+                    key: _sectionKeys[PortfolioSection.competencies]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
-                PDPAndProjectsWidget(key: _sectionKeys[PortfolioSection.pdp]),
+                PDPAndProjectsWidget(
+                    key: _sectionKeys[PortfolioSection.projects]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
-                ContactDetailsWidget(key: _sectionKeys[PortfolioSection.contact]),
+                ContactDetailsWidget(
+                    key: _sectionKeys[PortfolioSection.contact]),
                 const SizedBox(height: AppSpacing.sectionSpacing),
                 const FooterWidget(),
               ],
@@ -110,13 +117,13 @@ class _NavDrawer extends StatelessWidget {
   const _NavDrawer({required this.sectionKeys});
 
   static const _items = [
-    (label: 'HOME',         section: PortfolioSection.home),
-    (label: 'ABOUT',        section: PortfolioSection.about),
-    (label: 'SKILLS',       section: PortfolioSection.skills),
-    (label: 'EXPERIENCE',   section: PortfolioSection.experience),
-    (label: 'STRENGTHS',     section: PortfolioSection.competencies),
-    (label: 'PDP',          section: PortfolioSection.pdp),
-    (label: 'CONTACT',      section: PortfolioSection.contact),
+    (label: 'HOME', section: PortfolioSection.home),
+    (label: 'ABOUT', section: PortfolioSection.about),
+    (label: 'SKILLS', section: PortfolioSection.skills),
+    (label: 'EXPERIENCE', section: PortfolioSection.experience),
+    (label: 'STRENGTHS', section: PortfolioSection.competencies),
+    (label: 'PROJECTS', section: PortfolioSection.projects),
+    (label: 'CONTACT', section: PortfolioSection.contact),
   ];
 
   @override

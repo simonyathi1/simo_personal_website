@@ -87,9 +87,9 @@ class _DesktopNavBar extends StatelessWidget {
                         itemSize: itemSize,
                       ),
                       _NavBarItem(
-                        title: 'PDP',
-                        section: PortfolioSection.pdp,
-                        isActive: state.activeSection == PortfolioSection.pdp,
+                        title: 'PROJECTS',
+                        section: PortfolioSection.projects,
+                        isActive: state.activeSection == PortfolioSection.projects,
                         sectionKeys: sectionKeys,
                         itemSize: itemSize,
                       ),
